@@ -19,7 +19,6 @@
       ));
       if ($reviews->have_posts()) :
         while ($reviews->have_posts()) : $reviews->the_post();
-          $slide_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
       ?>
 
           <div class="col-md-6">
