@@ -10,8 +10,9 @@ function crystalbeauty_enqueue_scripts()
     wp_enqueue_style('fancybox', get_template_directory_uri() . '/plugins/fancybox/jquery.fancybox.min.css');
     wp_enqueue_style('isotop', get_template_directory_uri() . '/plugins/isotope/isotope.min.css');
     wp_enqueue_style('datepicker', get_template_directory_uri() . '/plugins/datepicker/datepicker.min.css');
-    wp_enqueue_style('style', get_stylesheet_uri());
     wp_enqueue_style('default_css', get_template_directory_uri() . '/css/default.css');
+    wp_enqueue_style('theme_style', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_style('style', get_stylesheet_uri());
 
 
     wp_enqueue_script('jquery-custom', get_template_directory_uri() . '/plugins/jquery/jquery.min.js');

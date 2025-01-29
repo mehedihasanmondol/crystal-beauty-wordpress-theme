@@ -25,10 +25,10 @@ function crystalbeauty_register_slider()
         ),
         'public'      => true,
         'has_archive' => false,
-        'supports'    => array('title', 'excerpt', 'editor', 'thumbnail', 'page-attributes'),
+        'supports'    => array('title', 'excerpt', 'editor', 'thumbnail'),
         'menu_icon'   => 'dashicons-images-alt2',
-        'hierarchical' => true, // Makes it behave like pages
-        'show_in_rest' => true, // Enables Gutenberg
+        // 'hierarchical' => true, // Makes it behave like pages
+        // 'show_in_rest' => true, // Enables Gutenberg
     ));
 }
 add_action('init', 'crystalbeauty_register_slider');

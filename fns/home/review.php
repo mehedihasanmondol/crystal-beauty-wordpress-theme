@@ -69,10 +69,10 @@ function custom_post_type_testimonials()
         'rewrite'             => array('slug' => 'testimonials'),
         'capability_type'     => 'post',
         'has_archive'         => true,
-        'hierarchical'        => false,
+        // 'hierarchical'        => false,
         'menu_icon'           => 'dashicons-star-filled', // Star icon in admin menu
         'supports'            => array('title', 'editor', 'excerpt', 'thumbnail'),
-        'show_in_rest'        => true, // Enables Gutenberg support
+        // 'show_in_rest'        => true, // Enables Gutenberg support
     );
 
     register_post_type('testimonial', $args);

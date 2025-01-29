@@ -78,7 +78,7 @@ function crystal_beauty_custom_post_type_experts()
         'hierarchical'        => false,
         'rewrite'             => array('slug' => 'experts'),
         'supports'            => array('title', 'editor', 'excerpt', 'thumbnail'),
-        'show_in_rest'        => true, // Enables Gutenberg support
+        // 'show_in_rest'        => true, // Enables Gutenberg support
     );
 
     register_post_type('expert', $args);

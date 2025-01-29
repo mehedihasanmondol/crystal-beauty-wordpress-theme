@@ -10,3 +10,4 @@ require_once get_template_directory() . '/fns/home/about.php';
 require_once get_template_directory() . '/fns/home/review.php';
 require_once get_template_directory() . '/fns/home/call-to-action.php';
 require_once get_template_directory() . '/fns/home/expert.php';
+require_once get_template_directory() . '/fns/home/partner.php';
