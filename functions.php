@@ -8,3 +8,4 @@ require_once get_template_directory() . '/fns/logo.php';
 require_once get_template_directory() . '/fns/home/slider.php';
 require_once get_template_directory() . '/fns/home/about.php';
 require_once get_template_directory() . '/fns/home/review.php';
+require_once get_template_directory() . '/fns/home/call-to-action.php';
