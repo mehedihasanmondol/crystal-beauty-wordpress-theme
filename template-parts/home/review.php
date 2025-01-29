@@ -1,38 +1,49 @@
-
 <!-- REVIEW SECTION -->
-    <section class="clearfix reviewSection patternbg">
-      <div class="container">
-        <div class="secotionTitle">
-          <h2><span>Testimonials </span>Customer reviews</h2>
-        </div>
-        
-        <div class="row">
+<section class="clearfix reviewSection patternbg">
+  <div class="container">
+    <div class="secotionTitle">
+      <h2>
+        <span>
+          <?php echo get_theme_mod('testimonial_main_title', 'Testimonials'); ?>
+        </span>
+        <?php echo get_theme_mod('testimonial_subtitle', 'Customer reviews'); ?>
+      </h2>
+    </div>
+
+    <div class="row">
+      <?php
+      $reviews = new WP_Query(array(
+        'post_type' => 'testimonial',
+        'posts_per_page' => -1,
+        'order'          => 'ASC',
+      ));
+      if ($reviews->have_posts()) :
+        while ($reviews->have_posts()) : $reviews->the_post();
+          $slide_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+      ?>
+
           <div class="col-md-6">
             <div class="reviewImage">
-              <img src="<?php echo get_template_directory_uri() ?>/img/home/testimonial-1.jpg" data-src="<?php echo get_template_directory_uri() ?>/img/home/testimonial-1.jpg" alt="Image review" class="img-responsive lazyestload">
+              <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="Image review" class="img-responsive lazyestload">
             </div>
 
             <div class="reviewInfo mb-md-0">
               <i class="fa fa-quote-left" aria-hidden="true"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullam co laboris nisi ut aliquip ex ea commodo conse quat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-              <h3>Linda Smith</h3>
-              <h4>Founder, Angel Beauty Spa</h4>
+              <?php the_content(); ?>
+              <h3><?php the_title(); ?></h3>
+              <h4><?php echo get_the_excerpt() ?></h4>
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="reviewImage">
-              <img src="<?php echo get_template_directory_uri() ?>/img/home/testimonial-2.jpg" data-src="<?php echo get_template_directory_uri() ?>/img/home/testimonial-2.jpg" alt="Image review" class="img-responsive lazyestload">
-            </div>
+      <?php
+        endwhile;
+        wp_reset_postdata();
+      else :
+        echo '<p>No Testimonials found. Please add Testimonials in the Testimonials section.</p>';
+      endif;
+      ?>
 
-            <div class="reviewInfo mb-0">
-              <i class="fa fa-quote-left" aria-hidden="true"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullam co laboris nisi ut aliquip ex ea commodo conse quat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-              <h3>Linda Smith</h3>
-              <h4>Founder, Angel Beauty Spa</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
+    </div>
+  </div>
+</section>
