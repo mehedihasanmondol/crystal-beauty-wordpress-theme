@@ -4,6 +4,7 @@ function crystalbeauty_register_menus()
 {
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'crystal-beauty'),
+        'footer_menu'   => __('Footer Menu', 'crystal-beauty'),
     ));
 }
 add_action('init', 'crystalbeauty_register_menus');
