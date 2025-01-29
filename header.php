@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +17,8 @@
     .js #loader {
       display: block;
       position: absolute;
-      left: 100px; top: 0;
+      left: 100px;
+      top: 0;
     }
 
     .se-pre-con {
@@ -31,6 +33,7 @@
   </style>
 
 </head>
+
 <body id="body" class="body-wrapper static">
   <div class="se-pre-con"></div>
   <div class="main-wrapper">
@@ -38,12 +41,26 @@
     <header id="pageTop" class="header">
 
       <!-- TOP INFO BAR -->
+
+
       <div class="top-info-bar">
+
         <div class="container">
+
           <div class="top-bar-right">
             <ul class="list-inline">
-              <li><a href=""><i class="fa fa-envelope" aria-hidden="true"></i> info@yourdomain.com</a></li>
-              <li><span><i class="fa fa-phone" aria-hidden="true"></i>+1 234 567 8900</span></li>
+              <li>
+                <a href="mailto:<?php echo esc_attr(get_theme_mod('contact_email', 'info@yourdomain.com')); ?>">
+                  <i class="fa fa-envelope" aria-hidden="true"></i> <?php echo esc_html(get_theme_mod('contact_email', 'info@yourdomain.com')); ?>
+                </a>
+              </li>
+
+              <li>
+                <span>
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <?php echo esc_html(get_theme_mod('contact_phone', '+1 234 567 8900')); ?>
+                </span>
+              </li>
             </ul>
           </div>
         </div>
@@ -52,7 +69,7 @@
       <!-- NAVBAR -->
       <nav class="navbar navbar-expand-md main-nav navbar-light">
         <div class="container">
-     
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -60,13 +77,13 @@
           </button>
 
           <a class="navbar-brand" href="index.html"><img class="lazyestload" data-src="<?php echo get_template_directory_uri() ?>/img/logo.png" src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="logo"></a>
-  
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
-  
+
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Services</a>
                 <ul class="dropdown-menu">
@@ -75,7 +92,7 @@
                 </ul>
               </li>
 
-              <li class=" dropdown megaDropMenu nav-item " >
+              <li class=" dropdown megaDropMenu nav-item ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Store</a>
 
                 <ul class="row dropdown-menu justify-content-md-between">
@@ -115,7 +132,7 @@
                   </li>
                 </ul>
               </li>
-  
+
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Pages</a>
 
@@ -173,7 +190,7 @@
                   </li>
                 </ul>
               </li>
-  
+
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Components</a>
                 <ul class="dropdown-menu menu-right">
@@ -191,5 +208,5 @@
           <!-- header search ends-->
         </div>
       </nav>
-      
+
     </header>
