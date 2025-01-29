@@ -32,7 +32,15 @@ if (get_theme_mod('cta_section_visibility', 1)) {
 ?>
 
 <!-- EXPERT SECTION -->
-<?php get_template_part('template-parts/home/expert'); ?>
+<?php
+
+// if switch visibity on
+
+if (get_theme_mod('expert_section_visibility', 1)) {
+    get_template_part('template-parts/home/expert');
+}
+?>
+
 <!-- PRICING SECTION -->
 <?php get_template_part('template-parts/home/pricing'); ?>
 <!-- CONTACT US SECTION -->

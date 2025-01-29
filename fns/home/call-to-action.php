@@ -9,7 +9,7 @@ function crystal_call_to_action_register($wp_customize)
         'priority' => 30,
     ));
 
-    // On/Off Switch for About Section
+    // On/Off Switch for cta Section
     $wp_customize->add_setting('cta_section_visibility', array(
         'default'           => '1', // 1 = ON by default
         'sanitize_callback' => 'absint',

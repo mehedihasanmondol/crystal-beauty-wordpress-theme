@@ -8,6 +8,19 @@ function crystalbeauty_expert_headings_register($wp_customize)
         'priority' => 30,
     ));
 
+    // On/Off Switch for expert Section
+    $wp_customize->add_setting('expert_section_visibility', array(
+        'default'           => '1', // 1 = ON by default
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('expert_section_visibility', array(
+        'label'    => __('Show Expert Section', 'crystal-beauty'),
+        'section'  => 'expert_titles',
+        'type'     => 'checkbox', // Checkbox acts as an on/off switch
+    ));
+
+
     // Field for "Meet"
     $wp_customize->add_setting('expert_main_title', array(
         'default'   => 'Meet',
