@@ -7,6 +7,18 @@ function theme_testimonial_heading_register($wp_customize)
         'priority' => 30,
     ));
 
+    // On/Off Switch for testimonial Section
+    $wp_customize->add_setting('testimonial_section_visibility', array(
+        'default'           => '1', // 1 = ON by default
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('testimonial_section_visibility', array(
+        'label'    => __('Show testimonial Section', 'crystal-beauty'),
+        'section'  => 'testimonial_section',
+        'type'     => 'checkbox', // Checkbox acts as an on/off switch
+    ));
+
     // Setting for Main Title
     $wp_customize->add_setting('testimonial_main_title', array(
         'default'   => 'Testimonials',
