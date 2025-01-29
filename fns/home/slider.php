@@ -1,4 +1,41 @@
 <?php
+
+function crystalbeauty_customize_slider_section($wp_customize)
+{
+    // Slider Section
+    $wp_customize->add_section('slider_section', array(
+        'title'    => __('Slider Section', 'crystal-beauty'),
+        'priority' => 25,
+    ));
+
+    // On/Off Switch for Slider Heading
+    $wp_customize->add_setting('slider_section_visibility', array(
+        'default'           => '1', // 1 = ON by default
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('slider_section_visibility', array(
+        'label'    => __('Show Slider Heading', 'crystal-beauty'),
+        'section'  => 'slider_section',
+        'type'     => 'checkbox', // Checkbox acts as an on/off switch
+    ));
+
+    // Slider Section Heading
+    $wp_customize->add_setting('slider_section_heading', array(
+        'default'           => 'Welcome to Our Spa',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('slider_section_heading', array(
+        'label'    => __('Slider Section Heading', 'crystal-beauty'),
+        'section'  => 'slider_section',
+        'type'     => 'text',
+    ));
+}
+
+add_action('customize_register', 'crystalbeauty_customize_slider_section');
+
+
 add_theme_support('post-thumbnails');
 function crystalbeauty_register_slider()
 {

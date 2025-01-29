@@ -1,6 +1,13 @@
 <?php get_header(); ?>
 <!-- MAIN SLIDER -->
-<?php get_template_part('template-parts/home/slider'); ?>
+<?php
+
+// if switch visibity on
+
+if (get_theme_mod('slider_section_visibility', 1)) {
+    get_template_part('template-parts/home/slider');
+}
+?>
 
 <!-- ABOUT SECTION -->
 <?php
