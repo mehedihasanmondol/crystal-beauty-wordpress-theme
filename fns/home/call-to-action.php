@@ -2,11 +2,25 @@
 
 function crystal_call_to_action_register($wp_customize)
 {
+
     // Add a Section in Customizer
     $wp_customize->add_section('cta_section', array(
         'title'    => __('Call to Action', 'crystal-beauty'),
         'priority' => 30,
     ));
+
+    // On/Off Switch for About Section
+    $wp_customize->add_setting('cta_section_visibility', array(
+        'default'           => '1', // 1 = ON by default
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('cta_section_visibility', array(
+        'label'    => __('Show Call to Action Section', 'crystal-beauty'),
+        'section'  => 'cta_section',
+        'type'     => 'checkbox', // Checkbox acts as an on/off switch
+    ));
+
 
     // Setting for CTA Text
     $wp_customize->add_setting('cta_text', array(

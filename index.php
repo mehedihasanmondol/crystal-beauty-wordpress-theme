@@ -22,8 +22,15 @@ if (get_theme_mod('about_section_visibility', 1)) {
 <?php get_template_part('template-parts/home/review'); ?>
 <!-- HOME GALLERY SECTION -->
 <?php get_template_part('template-parts/home/gallery'); ?>
+
 <!-- CALL TO ACTION SECTION -->
-<?php get_template_part('template-parts/home/call-to-action'); ?>
+<?php
+// if switch visibity on
+if (get_theme_mod('cta_section_visibility', 1)) {
+    get_template_part('template-parts/home/call-to-action');
+}
+?>
+
 <!-- EXPERT SECTION -->
 <?php get_template_part('template-parts/home/expert'); ?>
 <!-- PRICING SECTION -->
