@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-md-6 col-lg-7 col-xl-8">
         <div class="contactTitle">
-          <h3>Get in touch</h3>
+          <h3>
+            <?php echo esc_html(get_theme_mod('contact_section_heading', 'Get in touch')); ?>
+          </h3>
         </div>
 
         <div class="contactForm">

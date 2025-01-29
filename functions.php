@@ -13,3 +13,4 @@ require_once get_template_directory() . '/fns/home/expert.php';
 require_once get_template_directory() . '/fns/home/partner.php';
 require_once get_template_directory() . '/fns/footer.php';
 require_once get_template_directory() . '/fns/social.php';
+require_once get_template_directory() . '/fns/home/contact.php';
