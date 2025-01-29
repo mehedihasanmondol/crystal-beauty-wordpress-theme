@@ -2,6 +2,17 @@
 
 function theme_customize_register($wp_customize)
 {
+    // On/Off Switch for About Section
+    $wp_customize->add_setting('about_section_visibility', array(
+        'default'           => '1', // 1 = ON by default
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('about_section_visibility', array(
+        'label'    => __('Show About Section', 'crystal-beauty'),
+        'section'  => 'about_section',
+        'type'     => 'checkbox', // Checkbox acts as an on/off switch
+    ));
     $wp_customize->add_section('about_section', array(
         'title' => __('About Section', 'crystal-beauty'),
         'priority' => 30,

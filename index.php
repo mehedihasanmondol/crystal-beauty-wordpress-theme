@@ -1,8 +1,16 @@
 <?php get_header(); ?>
 <!-- MAIN SLIDER -->
 <?php get_template_part('template-parts/home/slider'); ?>
+
 <!-- ABOUT SECTION -->
-<?php get_template_part('template-parts/home/about'); ?>
+<?php
+// if switch visibity on
+if (get_theme_mod('about_section_visibility', 1)) {
+
+    get_template_part('template-parts/home/about');
+}
+?>
+
 <!-- VARIETY SECTION -->
 <?php get_template_part('template-parts/home/variety'); ?>
 
@@ -12,7 +20,7 @@
 <?php get_template_part('template-parts/home/products'); ?>
 <!-- REVIEW SECTION -->
 <?php get_template_part('template-parts/home/review'); ?>
- <!-- HOME GALLERY SECTION -->
+<!-- HOME GALLERY SECTION -->
 <?php get_template_part('template-parts/home/gallery'); ?>
 <!-- CALL TO ACTION SECTION -->
 <?php get_template_part('template-parts/home/call-to-action'); ?>
@@ -27,9 +35,9 @@
 <!-- PARTNER LOGO SECTION -->
 <?php get_template_part('template-parts/home/partner'); ?>
 
-    
 
 
 
 
-    <?php get_footer(); ?>
+
+<?php get_footer(); ?>
