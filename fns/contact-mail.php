@@ -36,19 +36,31 @@ function crystalbeauty_contact_mail_settings($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_email_subject', array(
-        'label'    => __('Email Subject (Use {{name}}, {{email}}, {{message}})', 'crystal-beauty'),
+        'label'    => __('Email Subject (Use {{name}}, {{email}}, {{message}}, {{mobile}})', 'crystal-beauty'),
         'section'  => 'contact_mail_settings',
         'type'     => 'text',
     ));
 
     // Success Message (with Mustache Templating)
     $wp_customize->add_setting('contact_message', array(
-        'default'   => 'Thank you {{name}}, your message has been sent successfully!',
+        'default'   => 'You have received a new inquiry.
+
+                        Name: {{name}}
+                        Email: {{email}}
+                        Mobile: {{mobile}}
+                        Date & Time: {{date}} at {{time}}
+                        Services Interested: {{services}}
+
+                        Message:
+                        {{message}}
+
+                        Regards,
+                        Your Website',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
 
     $wp_customize->add_control('contact_message', array(
-        'label'    => __('Email Message (Use {{name}}, {{email}}, {{message}})', 'crystal-beauty'),
+        'label'    => __('Email Message (Use {{name}}, {{email}}, {{message}}, {{mobile}})', 'crystal-beauty'),
         'section'  => 'contact_mail_settings',
         'type'     => 'textarea',
     ));

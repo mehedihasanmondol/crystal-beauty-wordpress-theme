@@ -385,7 +385,7 @@ jQuery(document).ready(function(){
     var submiturl    =  $(this).attr('action');
     var submitbtn 	 =  $('#contact-submit-btn');
     submitbtn.text('Sending...');
-    // $('#angelContactForm :input').prop('disabled', true);
+    $('#angelContactForm :input').prop('disabled', true);
     $.ajax({
       url: ajaxurl.contact_mail,
       type: 'POST',
@@ -414,39 +414,42 @@ jQuery(document).ready(function(){
       
     });
   
-      // =========================== Appoinment Form =========================
-    $('#appoinmentModalForm').submit(function(e){
-      var contactdata  =  $(this).serializeArray();
+    // =========================== Appoinment Form =========================
+    $('#appoinmentForm').submit(function(e){
+      e.preventDefault();
+      var contactData  =  $(this).serializeArray();
       var submiturl    =  $(this).attr('action');
       var submitbtn 	 =  $('#appointment-submit-btn');
-      submitbtn.val('Sending...');
-      $('#appoinmentModalForm :input').prop('disabled', true);
+      submitbtn.text('Sending...');
+      contactData.push({ name: "action", value: "crystalbeauty_appointment_form" }); // Add custom data
+    
+      $('#appoinmentForm :input').prop('disabled', true);
       $.ajax({
-        url: submiturl,
+        url: ajaxurl.appointment_mail,
         type: 'POST',
         dataType: 'json',
-        data : contactdata,
+        data : contactData,
         success: function(response){
           $('#appointment-alert').removeClass('alert alert-success');
           $('#appointment-alert').removeClass('alert alert-danger');
           if(response.status=== 'true'){
             $('#appointment-alert').addClass('alert alert-success');
-            $('#appoinmentModalForm :input').prop('disabled', false);
-            $('#appoinmentModalForm')[0].reset();
-            submitbtn.val('Send');
+            $('#appoinmentForm :input').prop('disabled', false);
+            $('#appoinmentForm')[0].reset();
+            submitbtn.text('Send');
           }else{
             $('#appointment-alert').addClass('alert alert-danger');
-            $('#appoinmentModalForm :input').prop('disabled', false);
-            submitbtn.val('Send');
+            $('#appoinmentForm :input').prop('disabled', false);
+            submitbtn.text('Send');
           }
           $('#appointment-alert').html(response.message).slideDown();
           window.setTimeout(function() {
-            $('#appointment-alert').alert('close');
-          }, 3000);
+            $('#appointment-alert').hide();
+          }, 10000);
         }
       });
-      e.preventDefault();
-    });
+      
+    });  
 })
 
   

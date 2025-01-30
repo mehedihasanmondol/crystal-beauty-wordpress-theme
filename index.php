@@ -24,7 +24,8 @@ function crystalbeauty_enqueue_home_scripts()
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     // Localize script to provide AJAX URL
     wp_localize_script('custom', 'ajaxurl', array(
-        'contact_mail' => admin_url('admin-ajax.php')
+        'contact_mail' => admin_url('admin-ajax.php'),
+        'appointment_mail' => admin_url('admin-ajax.php')
     ));
 }
 add_action('wp_enqueue_scripts', 'crystalbeauty_enqueue_home_scripts');
@@ -122,6 +123,7 @@ if (get_theme_mod('package_service_section_visibility', 1)) {
 if (get_theme_mod('contact_section_visibility', 1)) {
     get_template_part('template-parts/home/contact-us');
 }
+
 ?>
 
 
@@ -133,6 +135,7 @@ if (get_theme_mod('contact_section_visibility', 1)) {
 if (get_theme_mod('partner_section_visibility', 1)) {
     get_template_part('template-parts/home/partner');
 }
+
 ?>
 
 
