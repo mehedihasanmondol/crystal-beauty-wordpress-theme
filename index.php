@@ -19,7 +19,15 @@ if (get_theme_mod('about_section_visibility', 1)) {
 ?>
 
 <!-- VARIETY SECTION -->
-<?php get_template_part('template-parts/home/variety'); ?>
+<?php
+
+// if switch visibity on
+
+if (get_theme_mod('service_section_visibility', 1)) {
+    get_template_part('template-parts/home/variety');
+}
+?>
+
 
 <!-- OFFERS SECTION -->
 <?php get_template_part('template-parts/home/offer'); ?>
@@ -78,6 +86,8 @@ if (get_theme_mod('partner_section_visibility', 1)) {
     get_template_part('template-parts/home/partner');
 }
 ?>
+
+
 
 
 
