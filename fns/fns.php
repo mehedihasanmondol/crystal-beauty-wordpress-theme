@@ -85,3 +85,52 @@ function get_products($product_type, $limit = -1)
 
     return wc_get_products($args);
 }
+
+
+function send_mail($from_email, $to_email, $subject, $message, $reply_email, $from_name = "", $to_name = "", $reply_name, $success_message = "")
+{
+    $response = array(
+        "status" => false,
+        "message" => ""
+    );
+
+    // Include PHPMailer files
+
+    require_once get_template_directory() . '/packages/vendor/phpmailer/phpmailer/src/Exception.php';
+    require_once get_template_directory() . '/packages/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require_once get_template_directory() . '/packages/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+    // Create a new PHPMailer instance
+    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+    try {
+
+        // SMTP Configuration
+        $mail->isSMTP();
+        $mail->Host = get_option('mailserver_url'); // SMTP server
+        $mail->SMTPAuth = true;
+        $mail->Username = get_option('mailserver_login');      // Mailtrap Username
+        $mail->Password = get_option('mailserver_pass');      // Mailtrap Password
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = get_option('mailserver_port');
+
+        // Email Content
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->setFrom($from_email, $from_name);
+        $mail->addAddress($to_email, $to_name);
+        $mail->addReplyTo($reply_email, $reply_name);
+        $mail->Subject = $subject;
+
+        $mail->Body = $message;
+
+
+        // Send the email
+        $mail->send();
+        $response = ['status' => 'true', 'message' => $success_message];
+    } catch (\PHPMailer\PHPMailer\Exception $e) {
+        $response = ['status' => 'false', 'message' => $error . ' Error: ' . $mail->ErrorInfo];
+    }
+
+    return $response;
+}

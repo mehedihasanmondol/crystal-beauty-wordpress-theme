@@ -373,105 +373,81 @@ if (data_morphing.length !== 0) {
   });
 }
 
-// =========================== Contact Form =========================
-$('#angelContactForm').submit(function(e){
-  var contactdata  =  $(this).serializeArray();
-  var submiturl    =  $(this).attr('action');
-  var submitbtn 	 =  $('#contact-submit-btn');
-  submitbtn.val('Sending...');
-  $('#angelContactForm :input').prop('disabled', true);
-  $.ajax({
-    url: submiturl,
-    type: 'POST',
-    dataType: 'json',
-    data : contactdata,
-    success: function(response){
-      $('#alert').removeClass('alert alert-success');
-      $('#alert').removeClass('alert alert-danger');
-      if(response.status=== 'true'){
-        $('#alert').addClass('alert alert-success');
-        $('#angelContactForm :input').prop('disabled', false);
-        $('#angelContactForm')[0].reset();
-        submitbtn.val('Send');
-      }else{
-        $('#alert').addClass('alert alert-danger');
-        $('#angelContactForm :input').prop('disabled', false);
-        submitbtn.val('Send');
-      }
-      $('#alert').html(response.message).slideDown();
-      window.setTimeout(function() {
-        $('#alert').alert('close'); }, 3000);
-      }
-    });
-    e.preventDefault();
-  });
+jQuery(document).ready(function(){
 
   // =========================== Contact Form =========================
+
   $('#angelContactForm').submit(function(e){
-    var contactdata  =  $(this).serializeArray();
+    
+    e.preventDefault();
+    var contactData  =  $(this).serializeArray();
+    contactData.push({ name: "action", value: "crystalbeauty_contact_form" }); // Add custom data
     var submiturl    =  $(this).attr('action');
     var submitbtn 	 =  $('#contact-submit-btn');
-    submitbtn.val('Sending...');
-    $('#angelContactForm :input').prop('disabled', true);
+    submitbtn.text('Sending...');
+    // $('#angelContactForm :input').prop('disabled', true);
     $.ajax({
-      url: submiturl,
+      url: ajaxurl.contact_mail,
       type: 'POST',
       dataType: 'json',
-      data : contactdata,
+      data : contactData ,
       success: function(response){
-        $('#alert').removeClass('alert alert-success');
-        $('#alert').removeClass('alert alert-danger');
-        if(response.status=== 'true'){
-          $('#alert').addClass('alert alert-success');
-          $('#angelContactForm :input').prop('disabled', false);
-          $('#angelContactForm')[0].reset();
-          submitbtn.val('Send');
-        }else{
-          $('#alert').addClass('alert alert-danger');
-          $('#angelContactForm :input').prop('disabled', false);
-          submitbtn.val('Send');
+        $("#alert").removeClass("alert alert-success");
+        $("#alert").removeClass("alert alert-danger");
+        if (response.status === "true") {
+            $("#alert").addClass("alert alert-success");
+            $("#angelContactForm :input").prop("disabled", false);
+            $("#angelContactForm")[0].reset();
+            submitbtn.text("Send");
+        } else {
+            $("#alert").addClass("alert alert-danger");
+            $("#angelContactForm :input").prop("disabled", false);
+            submitbtn.text("Send");
         }
-        $('#alert').html(response.message).slideDown();
-        window.setTimeout(function() {
-          $('#alert').alert('close'); }, 3000);
+        $("#alert").html(response.message).slideDown();
+        window.setTimeout(function () {
+            $("#alert").hide();
+        }, 10000);
+
+        }
+      });
+      
+    });
+  
+      // =========================== Appoinment Form =========================
+    $('#appoinmentModalForm').submit(function(e){
+      var contactdata  =  $(this).serializeArray();
+      var submiturl    =  $(this).attr('action');
+      var submitbtn 	 =  $('#appointment-submit-btn');
+      submitbtn.val('Sending...');
+      $('#appoinmentModalForm :input').prop('disabled', true);
+      $.ajax({
+        url: submiturl,
+        type: 'POST',
+        dataType: 'json',
+        data : contactdata,
+        success: function(response){
+          $('#appointment-alert').removeClass('alert alert-success');
+          $('#appointment-alert').removeClass('alert alert-danger');
+          if(response.status=== 'true'){
+            $('#appointment-alert').addClass('alert alert-success');
+            $('#appoinmentModalForm :input').prop('disabled', false);
+            $('#appoinmentModalForm')[0].reset();
+            submitbtn.val('Send');
+          }else{
+            $('#appointment-alert').addClass('alert alert-danger');
+            $('#appoinmentModalForm :input').prop('disabled', false);
+            submitbtn.val('Send');
+          }
+          $('#appointment-alert').html(response.message).slideDown();
+          window.setTimeout(function() {
+            $('#appointment-alert').alert('close');
+          }, 3000);
         }
       });
       e.preventDefault();
     });
-
-    // =========================== Appoinment Form =========================
-  $('#appoinmentModalForm').submit(function(e){
-    var contactdata  =  $(this).serializeArray();
-    var submiturl    =  $(this).attr('action');
-    var submitbtn 	 =  $('#appointment-submit-btn');
-    submitbtn.val('Sending...');
-    $('#appoinmentModalForm :input').prop('disabled', true);
-    $.ajax({
-      url: submiturl,
-      type: 'POST',
-      dataType: 'json',
-      data : contactdata,
-      success: function(response){
-        $('#appointment-alert').removeClass('alert alert-success');
-        $('#appointment-alert').removeClass('alert alert-danger');
-        if(response.status=== 'true'){
-          $('#appointment-alert').addClass('alert alert-success');
-          $('#appoinmentModalForm :input').prop('disabled', false);
-          $('#appoinmentModalForm')[0].reset();
-          submitbtn.val('Send');
-        }else{
-          $('#appointment-alert').addClass('alert alert-danger');
-          $('#appoinmentModalForm :input').prop('disabled', false);
-          submitbtn.val('Send');
-        }
-        $('#appointment-alert').html(response.message).slideDown();
-        window.setTimeout(function() {
-          $('#appointment-alert').alert('close');
-        }, 3000);
-      }
-    });
-    e.preventDefault();
-  });
+})
 
   
   $(document).ready(function(e) {

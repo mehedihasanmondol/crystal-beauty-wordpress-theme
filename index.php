@@ -22,6 +22,10 @@ function crystalbeauty_enqueue_home_scripts()
     wp_enqueue_script('lazyload', get_template_directory_uri() . '/plugins/lazyestload/lazyestload.js');
     wp_enqueue_script('smooth-scroll', get_template_directory_uri() . '/plugins/smoothscroll/SmoothScroll.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
+    // Localize script to provide AJAX URL
+    wp_localize_script('custom', 'ajaxurl', array(
+        'contact_mail' => admin_url('admin-ajax.php')
+    ));
 }
 add_action('wp_enqueue_scripts', 'crystalbeauty_enqueue_home_scripts');
 
