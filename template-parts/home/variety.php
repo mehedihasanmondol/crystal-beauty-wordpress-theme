@@ -48,7 +48,7 @@ if (!class_exists('WooCommerce')) {
                   <div class="row">
                     <?php
 
-                    $products = get_products_by_category_id($category->term_id);
+                    $products = get_products_by_category_id($category->term_id, $product_type);
 
                     ?>
                     <div class="col-md-5 col-lg-4">
