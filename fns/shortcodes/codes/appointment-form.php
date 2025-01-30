@@ -13,12 +13,9 @@ add_action('wp_enqueue_scripts', function () {
         'appointment_mail' => admin_url('admin-ajax.php')
     ));
 });
-function appointment_shortcode()
-{
 
-
+add_shortcode('appointment-form', function () {
     ob_start();
     get_template_part('template-parts/appointment');
     return ob_get_clean();
-}
-add_shortcode('appointment_form', 'appointment_shortcode');
+});

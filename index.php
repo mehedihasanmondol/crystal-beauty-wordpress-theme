@@ -39,7 +39,7 @@ add_action('wp_enqueue_scripts', 'crystalbeauty_enqueue_home_scripts');
 // if switch visibity on
 
 if (get_theme_mod('slider_section_visibility', 1)) {
-    get_template_part('template-parts/home/slider');
+    echo do_shortcode('[slider]');
 }
 ?>
 
@@ -47,8 +47,7 @@ if (get_theme_mod('slider_section_visibility', 1)) {
 <?php
 // if switch visibity on
 if (get_theme_mod('about_section_visibility', 1)) {
-
-    get_template_part('template-parts/home/about');
+    echo do_shortcode('[about-section]');
 }
 ?>
 
@@ -64,7 +63,7 @@ if (get_theme_mod('service_section_visibility', 1)) {
 
 
 <!-- OFFERS SECTION -->
-<?php get_template_part('template-parts/home/offer'); ?>
+<?php echo do_shortcode('[offer]'); ?>
 <!-- PRODUCT SECTION -->
 <?php
 
