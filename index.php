@@ -32,7 +32,14 @@ if (get_theme_mod('service_section_visibility', 1)) {
 <!-- OFFERS SECTION -->
 <?php get_template_part('template-parts/home/offer'); ?>
 <!-- PRODUCT SECTION -->
-<?php get_template_part('template-parts/home/products'); ?>
+<?php
+
+// if switch visibity on
+
+if (get_theme_mod('product_section_visibility', 1)) {
+    get_template_part('template-parts/home/products');
+}
+?>
 <!-- REVIEW SECTION -->
 <?php
 
