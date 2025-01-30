@@ -12,16 +12,16 @@
           <div id="alert"></div><!--Response Holder-->
           <form action="#" id="angelContactForm" method="post">
             <div class="form-group">
-              <input type="text" name="contact-form-name" class="form-control" placeholder="Your Name" required value="mehedi">
+              <input type="text" name="contact-form-name" class="form-control" placeholder="Your Name" required>
             </div>
             <div class="form-group">
-              <input type="email" name="contact-form-email" class="form-control" placeholder="Your Email" required value="mahadirahman5@gmail.com">
+              <input type="email" name="contact-form-email" class="form-control" placeholder="Your Email" required>
             </div>
             <div class="form-group">
-              <input type="text" name="contact-form-mobile" class="form-control" placeholder="Your Mobile" required value="0157878787">
+              <input type="text" name="contact-form-mobile" class="form-control" placeholder="Your Mobile" required>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="contact-form-message" placeholder="Your Message" required>message from wordpress</textarea>
+              <textarea class="form-control" name="contact-form-message" placeholder="Your Message" required></textarea>
             </div>
             <div class="form-group">
               <button type="submit" id="contact-submit-btn" class="btn btn-primary first-btn">send Message</button>
