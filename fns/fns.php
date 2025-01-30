@@ -73,3 +73,15 @@ function get_offer_products($product_type, $limit = -1)
 
     return wc_get_products($args);
 }
+
+function get_products($product_type, $limit = -1)
+{
+    $args = array(
+        'limit'      => $limit,  // -1 for all products, or set a number
+        'return'     => 'objects', // Can be 'ids' for just product IDs
+        'status'     => 'publish', // Only get published products
+        'type'       => $product_type, // Filter by product type "service"
+    );
+
+    return wc_get_products($args);
+}

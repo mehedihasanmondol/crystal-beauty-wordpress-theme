@@ -28,7 +28,7 @@ function crystalbeauty_customize_package_service_section($wp_customize)
 
     // Package_service Section Heading
     $wp_customize->add_setting('package_service_section_heading', array(
-        'default'           => 'Discover',
+        'default'           => 'Amazing',
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
@@ -40,7 +40,7 @@ function crystalbeauty_customize_package_service_section($wp_customize)
 
     // Package_service Section sub Heading
     $wp_customize->add_setting('package_service_section_sub_heading', array(
-        'default'           => 'variety of spa',
+        'default'           => 'Services Pricing',
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
@@ -98,4 +98,4 @@ function custom_package_service_add_to_cart()
         echo '<a href="' . esc_url($product->get_permalink()) . '" class="button">Book package service</a>';
     }
 }
-add_action('woocommerce_after_shop_loop_item', 'custom_package_service_add_to_cart', 10);
+// add_action('woocommerce_after_shop_loop_item', 'custom_package_service_add_to_cart', 10);

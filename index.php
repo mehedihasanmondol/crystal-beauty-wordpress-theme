@@ -65,7 +65,14 @@ if (get_theme_mod('expert_section_visibility', 1)) {
 ?>
 
 <!-- PRICING SECTION -->
-<?php get_template_part('template-parts/home/pricing'); ?>
+<?php
+
+// if switch visibity on
+
+if (get_theme_mod('package_service_section_visibility', 1)) {
+    get_template_part('template-parts/home/pricing');
+}
+?>
 <!-- CONTACT US SECTION -->
 <?php
 

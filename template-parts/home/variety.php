@@ -99,7 +99,7 @@ if (!class_exists('WooCommerce')) {
                                 <a href="javascript:void(0)" class="btn btn-primary first-btn" data-toggle="modal" data-target="#appoinmentModal">make An Appoinment</a>
                               <?php } else { ?>
                                 <!-- Product Details Button -->
-                                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="btn btn-primary first-btn">Book service</a>
+                                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="btn btn-primary first-btn">Book now</a>
 
                               <?php } ?>
 
