@@ -45,19 +45,20 @@
         </div>
 
 
-        <div class="col-sm-3 col-xs-12">
-          <div class="footerInfoTitle">
-            <h4><?php echo esc_html(get_theme_mod('newsletter_heading', 'Subscribe to our Newsletter')); ?></h4>
+        <?php
+        if (get_theme_mod('google_map_script', '')) {
+        ?>
+          <div class="col-sm-3 col-xs-12">
+            <div class="footerInfoTitle">
+              <h4>On Map</h4>
+            </div>
+            <div class="footerGallery row">
+              <?php echo get_theme_mod('google_map_script', ''); ?>
+            </div>
           </div>
+        <?php } ?>
 
-          <div class="footerText">
-            <p><?php echo esc_html(get_theme_mod('newsletter_text', 'Get the latest updates and offers.')); ?></p>
-            <form class="input-group">
-              <input type="text" class="form-control" required="" placeholder="Email address" aria-describedby="basic-addon21">
-              <button type="submit" class="input-group-addon" id="basic-addon21">Send</button>
-            </form>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>

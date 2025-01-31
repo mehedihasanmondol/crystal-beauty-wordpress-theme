@@ -40,27 +40,40 @@ function crystalbeauty_customize_footer_settings($wp_customize)
         'type'     => 'text',
     ));
 
-    // Newsletter Heading
-    $wp_customize->add_setting('newsletter_heading', array(
-        'default'   => 'Subscribe to our Newsletter',
-        'sanitize_callback' => 'sanitize_text_field',
+
+    // google map script
+    $wp_customize->add_setting('google_map_script', array(
+        'default'   => '',
     ));
-    $wp_customize->add_control('newsletter_heading', array(
-        'label'    => __('Newsletter Heading', 'crystal-beauty'),
+    $wp_customize->add_control('google_map_script', array(
+        'label'    => __('Google map script', 'crystal-beauty'),
         'section'  => 'footer_section',
         'type'     => 'text',
     ));
 
-    // Newsletter Text
-    $wp_customize->add_setting('newsletter_text', array(
-        'default'   => 'Get the latest updates and offers.',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ));
-    $wp_customize->add_control('newsletter_text', array(
-        'label'    => __('Newsletter Text', 'crystal-beauty'),
-        'section'  => 'footer_section',
-        'type'     => 'textarea',
-    ));
+
+
+    // Newsletter Heading
+    // $wp_customize->add_setting('newsletter_heading', array(
+    //     'default'   => 'Subscribe to our Newsletter',
+    //     'sanitize_callback' => 'sanitize_text_field',
+    // ));
+    // $wp_customize->add_control('newsletter_heading', array(
+    //     'label'    => __('Newsletter Heading', 'crystal-beauty'),
+    //     'section'  => 'footer_section',
+    //     'type'     => 'text',
+    // ));
+
+    // // Newsletter Text
+    // $wp_customize->add_setting('newsletter_text', array(
+    //     'default'   => 'Get the latest updates and offers.',
+    //     'sanitize_callback' => 'sanitize_textarea_field',
+    // ));
+    // $wp_customize->add_control('newsletter_text', array(
+    //     'label'    => __('Newsletter Text', 'crystal-beauty'),
+    //     'section'  => 'footer_section',
+    //     'type'     => 'textarea',
+    // ));
 
     //copyright
     // $wp_customize->add_setting('copyright', array(
