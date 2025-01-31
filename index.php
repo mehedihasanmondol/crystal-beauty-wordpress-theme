@@ -53,8 +53,14 @@ if (get_theme_mod('testimonial_section_visibility', 1)) {
 }
 ?>
 
+
 <!-- HOME GALLERY SECTION -->
-<?php //get_template_part('template-parts/home/gallery'); 
+
+<?php
+// if switch visibity on
+if (get_theme_mod('gallery_section_visibility', 1)) {
+    echo do_shortcode('[gallery]');
+}
 ?>
 
 <!-- CALL TO ACTION SECTION -->

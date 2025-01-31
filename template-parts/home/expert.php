@@ -33,12 +33,13 @@ $atts = get_query_var('experts_atts', array());
               $facebook  = get_post_meta(get_the_ID(), 'expert_facebook', true);
               $twitter   = get_post_meta(get_the_ID(), 'expert_twitter', true);
               $linkedin  = get_post_meta(get_the_ID(), 'expert_linkedin', true);
+              $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
           ?>
 
               <div class="slide">
                 <div class="expertBox">
                   <div class="expertImage">
-                    <img class="lazyestload" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="Image expert">
+                    <img class="lazyestload" data-src="<?php echo $image_url ?>" src="<?php echo $image_url ?>" alt="Image expert">
                     <div class="expertMask">
                       <div class="socialArea">
                         <ul class="list-inline">

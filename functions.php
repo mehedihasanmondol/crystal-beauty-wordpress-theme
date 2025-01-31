@@ -18,6 +18,7 @@ require_once get_template_directory() . '/fns/home/partner.php';
 require_once get_template_directory() . '/fns/footer.php';
 require_once get_template_directory() . '/fns/social.php';
 require_once get_template_directory() . '/fns/home/contact.php';
+require_once get_template_directory() . '/fns/home/gallery.php';
 require_once get_template_directory() . '/fns/product/service.php';
 require_once get_template_directory() . '/fns/product/package-service.php';
 require_once get_template_directory() . '/fns/product/simple-product.php';

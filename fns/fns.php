@@ -148,3 +148,12 @@ function generate_time_slots($start_time = '01:00', $interval = 60, $end_time = 
 
     return $time_slots;
 }
+
+
+function get_gallery_categories()
+{
+    return get_terms(array(
+        'taxonomy'   => 'gallery_category',
+        'hide_empty' => true, // Show empty categories too
+    ));
+}

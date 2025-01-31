@@ -12,10 +12,11 @@
           ));
           if ($reviews->have_posts()) :
             while ($reviews->have_posts()) : $reviews->the_post();
+              $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
           ?>
               <div class="slide">
                 <div class="partnersLogo clearfix">
-                  <img class="lazyestload" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="Image Partner">
+                  <img class="lazyestload" data-src="<?php echo $image_url ?>" src="<?php echo $image_url ?>" alt="Image Partner">
                 </div>
               </div>
           <?php
