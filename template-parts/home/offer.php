@@ -29,7 +29,14 @@ if (!class_exists('WooCommerce')) {
               </div>
             </div>
             <div class="offerPrice">
-              <h5><?php echo $currency_symbol ?><?php echo esc_html($product->get_price()) ?></h5>
+              <h5 style="font-size: 15px;">
+                <?php
+                $price = $product->get_price();
+                if (!empty($price)) {
+                  echo wc_price($price);
+                }
+                ?>
+              </h5>
             </div>
           </div>
         </div>

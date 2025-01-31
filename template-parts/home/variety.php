@@ -65,8 +65,12 @@ $atts = get_query_var('service_atts', array());
                                                                                                                       } ?>">
                               <?php echo esc_html($product->get_name()) ?>
                               <span>
-                                <?php echo $currency_symbol ?>
-                                <?php echo esc_html($product->get_price()) ?>
+                                <?php
+                                $price = $product->get_price();
+                                if (!empty($price)) {
+                                  echo wc_price($price);
+                                }
+                                ?>
                               </span>
                             </a>
                           </li>
@@ -91,7 +95,12 @@ $atts = get_query_var('service_atts', array());
                               <img src="<?php echo $image_url ?>" data-src="<?php echo $image_url ?>" alt="<?php echo esc_attr($product->get_name()); ?>" class="img-responsive lazyestload">
                               <h3><?php echo esc_html($product->get_name()) ?></h3>
                               <h4>
-                                <?php echo $currency_symbol ?><?php echo esc_html($product->get_price()) ?>
+                                <?php
+                                $price = $product->get_price();
+                                if (!empty($price)) {
+                                  echo wc_price($price);
+                                }
+                                ?>
                               </h4>
                               <p>
                                 <?php echo $product->get_short_description() ?>

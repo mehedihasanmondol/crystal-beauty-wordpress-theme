@@ -33,7 +33,11 @@ if (get_theme_mod('service_section_visibility', 1)) {
 
 
 <!-- OFFERS SECTION -->
-<?php echo do_shortcode('[offer]'); ?>
+<?php
+if (get_theme_mod('offer_section_visibility', 1)) {
+    echo do_shortcode('[offer]');
+}
+?>
 <!-- PRODUCT SECTION -->
 <?php
 
