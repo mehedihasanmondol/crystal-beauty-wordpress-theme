@@ -50,7 +50,12 @@ $atts = get_query_var('simple_products_atts', array());
                 <div class="col-md-6">
                   <div class="productInfo">
                     <h3><?php echo esc_html($product->get_name()) ?></h3>
-                    <h4><?php echo $currency_symbol ?><?php echo esc_html($product->get_price()) ?></h4>
+                    <h4>
+                      <?php
+                      echo wc_price($product->get_price());
+
+                      ?>
+                    </h4>
 
                     <p>
                       <?php echo $product->get_short_description() ?>
