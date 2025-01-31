@@ -91,7 +91,7 @@ if (get_theme_mod('testimonial_section_visibility', 1)) {
 <?php
 // if switch visibity on
 if (get_theme_mod('cta_section_visibility', 1)) {
-    get_template_part('template-parts/home/call-to-action');
+    echo do_shortcode('[call-to-action]');
 }
 ?>
 
@@ -120,7 +120,7 @@ if (get_theme_mod('package_service_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('contact_section_visibility', 1)) {
-    get_template_part('template-parts/home/contact-us');
+    echo do_shortcode('[contact-form]');
 }
 
 ?>
@@ -132,7 +132,7 @@ if (get_theme_mod('contact_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('partner_section_visibility', 1)) {
-    get_template_part('template-parts/home/partner');
+    echo do_shortcode('[partner]');
 }
 
 ?>
