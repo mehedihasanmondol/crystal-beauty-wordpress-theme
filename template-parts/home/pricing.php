@@ -29,21 +29,49 @@ $atts = get_query_var('package_service_atts', array());
       foreach ($products as $product) {
         // Get product image URL
         $image_id  = $product->get_image_id(); // Get main image ID
-        $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'full') : wc_placeholder_img_src();
+        $image_url = wp_get_attachment_image_url($image_id, 'full');
+        $price = $product->get_price();
 
       ?>
         <div class="col-md-6 col-lg-3">
           <div class="priceTableWrapper">
-            <div class="priceImage">
-              <img src="<?php echo $image_url ?>" data-src="<?php echo $image_url ?>" alt="<?php echo esc_html($product->get_name()) ?>" class="img-responsive lazyestload">
-              <div class="maskImage">
-                <h3><?php echo esc_html($product->get_name()) ?></h3>
+
+            <?php
+            if ($price or $image_id) {
+            ?>
+              <div class="priceImage">
+                <?php if ($image_id) { ?>
+                  <img src="<?php echo $image_url ?>" data-src="<?php echo $image_url ?>" alt="<?php echo esc_html($product->get_name()) ?>" class="img-responsive lazyestload">
+                <?php } ?>
+                <div class="maskImage">
+                  <h3><?php echo esc_html($product->get_name()) ?></h3>
+                </div>
+                <?php
+
+
+                if ($price) {
+
+                ?>
+                  <div class="priceTag">
+                    <h4>
+                      <?php
+
+                      if (!empty($price)) {
+                        echo  $price . $currency_symbol;
+                      }
+                      ?>
+                    </h4>
+                  </div>
+                <?php } ?>
               </div>
-              <div class="priceTag">
-                <h4><?php echo $currency_symbol ?><?php echo esc_html($product->get_price()) ?></h4>
-              </div>
-            </div>
+            <?php } ?>
+
             <div class="priceInfo">
+              <?php
+              if (!$price and !$image_id) {
+              ?>
+                <h3><?php echo esc_html($product->get_name()) ?></h3>
+              <?php } ?>
               <div>
                 <?php echo $product->get_short_description() ?>
 
