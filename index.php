@@ -57,7 +57,7 @@ if (get_theme_mod('about_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('service_section_visibility', 1)) {
-    get_template_part('template-parts/home/variety');
+    echo do_shortcode('[service]');
 }
 ?>
 
@@ -70,7 +70,7 @@ if (get_theme_mod('service_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('product_section_visibility', 1)) {
-    get_template_part('template-parts/home/products');
+    echo do_shortcode('[simple-products]');
 }
 ?>
 <!-- REVIEW SECTION -->
@@ -79,7 +79,7 @@ if (get_theme_mod('product_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('testimonial_section_visibility', 1)) {
-    get_template_part('template-parts/home/review');
+    echo do_shortcode('[testimonials]');
 }
 ?>
 
@@ -101,7 +101,7 @@ if (get_theme_mod('cta_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('expert_section_visibility', 1)) {
-    get_template_part('template-parts/home/expert');
+    echo do_shortcode('[experts]');
 }
 ?>
 
@@ -111,7 +111,7 @@ if (get_theme_mod('expert_section_visibility', 1)) {
 // if switch visibity on
 
 if (get_theme_mod('package_service_section_visibility', 1)) {
-    get_template_part('template-parts/home/pricing');
+    echo do_shortcode('[package-service]');
 }
 ?>
 <!-- CONTACT US SECTION -->

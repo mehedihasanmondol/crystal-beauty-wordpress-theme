@@ -1,16 +1,28 @@
+<?php
+// Exit if WooCommerce is not active
+if (!class_exists('WooCommerce')) {
+  return;
+}
+
+$atts = get_query_var('simple_products_atts', array());
+
+?>
+
 <!-- PRODUCT SECTION -->
 <!-- PARTNER LOGO SECTION -->
+
 <section class="clearfix productSection">
   <div class="container">
-    <div class="secotionTitle">
-      <h2>
-        <span>
-          <?php echo esc_html(get_theme_mod('product_section_heading', 'Natural')); ?>
-        </span>
-        <?php echo esc_html(get_theme_mod('product_section_subheading', 'Our Products')); ?>
-
-      </h2>
-    </div>
+    <?php if ($atts['heading-visibility']) { ?>
+      <div class="secotionTitle">
+        <h2>
+          <span>
+            <?php echo $atts['main-heading']; ?>
+          </span>
+          <?php echo $atts['sub-heading']; ?>
+        </h2>
+      </div>
+    <?php } ?>
 
     <div class="row">
       <div class="col-12">

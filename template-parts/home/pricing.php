@@ -1,15 +1,25 @@
+<?php
+// Exit if WooCommerce is not active
+if (!class_exists('WooCommerce')) {
+  return;
+}
+
+$atts = get_query_var('package_service_atts', array());
+
+?>
+
 <section class="clearfix pricingSection patternbg">
   <div class="container">
-    <div class="secotionTitle">
-      <h2>
-        <span>
-          <?php echo esc_html(get_theme_mod('package_service_section_heading', 'Amazing')); ?>
-
-        </span>
-        <?php echo esc_html(get_theme_mod('package_service_section_sub_heading', 'Services Pricing')); ?>
-
-      </h2>
-    </div>
+    <?php if ($atts['heading-visibility']) { ?>
+      <div class="secotionTitle">
+        <h2>
+          <span>
+            <?php echo $atts['main-heading']; ?>
+          </span>
+          <?php echo $atts['sub-heading']; ?>
+        </h2>
+      </div>
+    <?php } ?>
 
     <div class="row">
       <?php

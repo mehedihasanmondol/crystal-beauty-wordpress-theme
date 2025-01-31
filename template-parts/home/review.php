@@ -1,14 +1,23 @@
+<?php
+$atts = get_query_var('testimonials_atts', array());
+
+
+?>
+
+
 <!-- REVIEW SECTION -->
 <section class="clearfix reviewSection patternbg">
   <div class="container">
-    <div class="secotionTitle">
-      <h2>
-        <span>
-          <?php echo get_theme_mod('testimonial_main_title', 'Testimonials'); ?>
-        </span>
-        <?php echo get_theme_mod('testimonial_subtitle', 'Customer reviews'); ?>
-      </h2>
-    </div>
+    <?php if ($atts['heading-visibility']) { ?>
+      <div class="secotionTitle">
+        <h2>
+          <span>
+            <?php echo $atts['main-heading']; ?>
+          </span>
+          <?php echo $atts['sub-heading']; ?>
+        </h2>
+      </div>
+    <?php } ?>
 
     <div class="row">
       <?php

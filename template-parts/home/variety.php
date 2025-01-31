@@ -4,19 +4,23 @@ if (!class_exists('WooCommerce')) {
   return;
 }
 
+$atts = get_query_var('service_atts', array());
 
 ?>
 
 <section class="clearfix varietySection">
   <div class="container">
-    <div class="secotionTitle">
-      <h2>
-        <span>
-          <?php echo esc_html(get_theme_mod('service_section_heading', 'Discover')); ?>
-        </span>
-        <?php echo esc_html(get_theme_mod('service_section_sub_heading', 'variety of spa')); ?>
-      </h2>
-    </div>
+    <?php if ($atts['heading-visibility']) { ?>
+      <div class="secotionTitle">
+        <h2>
+          <span>
+            <?php echo $atts['main-heading']; ?>
+          </span>
+          <?php echo $atts['sub-heading']; ?>
+        </h2>
+      </div>
+    <?php } ?>
+
     <div class="row">
       <div class="col-12">
         <div class="tabbable tabTop">
