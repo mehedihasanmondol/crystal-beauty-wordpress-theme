@@ -1,6 +1,7 @@
 **shortcodes**
 [appointment-form main-heading='' sub-heading='' heading-visibility='0']
 [about-section]
+[gallery]
 [slider]
 [offer]
 [call-to-action]
