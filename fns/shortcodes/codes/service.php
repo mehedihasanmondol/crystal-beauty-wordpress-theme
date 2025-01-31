@@ -2,14 +2,15 @@
 
 add_shortcode('service', function ($atts) {
 
-    add_action('wp_enqueue_scripts', function () {
-        wp_enqueue_style('select_option_1', get_template_directory_uri() . '/plugins/selectbox/select_option1.css');
-        wp_enqueue_style('datepicker', get_template_directory_uri() . '/plugins/datepicker/datepicker.min.css');
+    add_action('wp_footer', function () {
+        wp_enqueue_style('select_option_1');
+        wp_enqueue_style('datepicker');
 
 
-        wp_enqueue_script('selectbox', get_template_directory_uri() . '/plugins/selectbox/jquery.selectbox-0.1.3.min.js');
-        wp_enqueue_script('datepicker', get_template_directory_uri() . '/plugins/datepicker/bootstrap-datepicker.min.js');
-        wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
+        wp_enqueue_script('selectbox');
+        wp_enqueue_script('datepicker');
+        wp_enqueue_script('lazyload');
+        wp_enqueue_script('custom');
         // Localize script to provide AJAX URL
         wp_localize_script('custom', 'ajaxurl', array(
             'contact_mail' => admin_url('admin-ajax.php'),

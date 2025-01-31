@@ -128,7 +128,7 @@
   </section>
 </div>
 
-
+<?php wp_footer(); ?>
 
 <script>
   //paste this code under head tag or in a seperate js file.

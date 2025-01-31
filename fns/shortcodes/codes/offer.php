@@ -2,9 +2,9 @@
 
 add_shortcode('offer', function () {
 
-    add_action('wp_enqueue_scripts', function () {
-        wp_enqueue_script('lazyload', get_template_directory_uri() . '/plugins/lazyestload/lazyestload.js');
-        wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
+    add_action('wp_footer', function () {
+        wp_enqueue_script('lazyload');
+        wp_enqueue_script('custom');
     });
 
     ob_start();

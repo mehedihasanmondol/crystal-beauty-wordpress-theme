@@ -1,12 +1,13 @@
 <?php
 
 add_shortcode('simple-products', function ($atts) {
-    add_action('wp_enqueue_scripts', function () {
-        wp_enqueue_style('owl_caresol', get_template_directory_uri() . '/plugins/owl-carousel/owl.carousel.min.css');
+    add_action('wp_footer', function () {
+        wp_enqueue_style('owl_carousel');
 
-        wp_enqueue_script('owlcaresol', get_template_directory_uri() . '/plugins/owl-carousel/owl.carousel.min.js');
-        wp_enqueue_script('lazyload', get_template_directory_uri() . '/plugins/lazyestload/lazyestload.js');
-        wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
+        wp_enqueue_script('owl_carousel');
+        wp_enqueue_script('lazyload');
+
+        wp_enqueue_script('custom');
     });
 
     $atts = shortcode_atts(
