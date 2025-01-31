@@ -113,7 +113,10 @@
           </div>
 
           <div class="cart_btn">
-            <a href="cart.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span class="badge">0</span></a>
+            <a href="<?php echo wc_get_cart_url(); ?>">
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              <span class="badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+            </a>
           </div>
           <!-- header search ends-->
         </div>
