@@ -12,3 +12,5 @@ require_once get_template_directory() . '/fns/shortcodes/codes/simple-products.p
 require_once get_template_directory() . '/fns/shortcodes/codes/testimonials.php';
 require_once get_template_directory() . '/fns/shortcodes/codes/experts.php';
 require_once get_template_directory() . '/fns/shortcodes/codes/package-service.php';
+require_once get_template_directory() . '/fns/shortcodes/codes/container-start.php';
+require_once get_template_directory() . '/fns/shortcodes/codes/container-end.php';
