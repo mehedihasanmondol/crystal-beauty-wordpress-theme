@@ -8,6 +8,11 @@ add_shortcode('simple-products', function ($atts) {
         wp_enqueue_script('lazyload');
 
         wp_enqueue_script('custom');
+        // Localize script to provide AJAX URL
+        wp_localize_script('custom', 'ajaxurl', array(
+            'contact_mail' => admin_url('admin-ajax.php'),
+            'appointment_mail' => admin_url('admin-ajax.php')
+        ));
     });
 
     $atts = shortcode_atts(

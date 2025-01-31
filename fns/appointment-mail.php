@@ -60,7 +60,7 @@ function crystalbeauty_appointment_mail_settings($wp_customize)
     ));
 
     $wp_customize->add_control('appointment_message', array(
-        'label'    => __('Email Message (Use {{name}}, {{email}}, {{message}}, {{mobile}}, {{date}} , {{time}}, {{services}})', 'crystal-beauty'),
+        'label'    => __('Email Message (Use {{name}}, {{email}}, {{message}}, {{mobile}}, {{address}}, {{date}} , {{time}}, {{services}})', 'crystal-beauty'),
         'section'  => 'appointment_mail_settings',
         'type'     => 'textarea',
     ));
@@ -95,6 +95,7 @@ function crystalbeauty_handle_appointment_form()
         $email = filter_var($_POST["appointment-form-email"] ?? '', FILTER_SANITIZE_EMAIL);
         $phone = htmlspecialchars($_POST["appointment-form-mobile"] ?? '');
         $message = htmlspecialchars($_POST["appointment-form-message"] ?? '');
+        $address = htmlspecialchars($_POST["appointment-form-address"] ?? '');
         $servicesList = !empty($services) ? implode(', ', array_map('htmlspecialchars', $services)) : 'No services selected.';
 
         // Get settings from the Customizer
@@ -110,6 +111,7 @@ function crystalbeauty_handle_appointment_form()
             'email' => $email,
             'message' => $message,
             'mobile' => $phone,
+            'address' => $address,
             'time' => $time,
             'date' => $date,
             'services' => $servicesList,

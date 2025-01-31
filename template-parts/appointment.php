@@ -60,10 +60,11 @@
             <div class="custom-timeSelect clearfix">
               <div class="countrySelect timeSelect">
                 <select name="appointment-form-time" id="time" class="select-drop">
-                  <option value="">- Select Time -</option>
-                  <option value="9am - 10am">9am - 10am</option>
-                  <option value="10am - 11am">10am - 11am</option>
-                  <option value="11am - 12pm">11am - 12pm</option>
+                  <?php
+                  foreach (generate_time_slots() as $time) {
+                  ?>
+                    <option value="<?php echo $time ?>"><?php echo $time ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -78,16 +79,16 @@
               <div id="appointment-alert"></div>
 
               <div class="form-group">
-                <input type="text" name="appointment-form-name" class="form-control" placeholder="Your Name" required value="mehedi hasan">
+                <input type="text" name="appointment-form-name" class="form-control" placeholder="Your Name" required>
               </div>
               <div class="form-group">
-                <input type="email" name="appointment-form-email" class="form-control" placeholder="Your Email" required value="mahadirahman23@gmail.com">
+                <input type="email" name="appointment-form-email" class="form-control" placeholder="Your Email" required>
               </div>
               <div class="form-group">
-                <input type="text" name="appointment-form-mobile" class="form-control" placeholder="Your Mobile" required value="0154787878">
+                <input type="text" name="appointment-form-mobile" class="form-control" placeholder="Your Mobile" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="appointment-form-message" placeholder="Your Message" required>message from wrodpress appointment</textarea>
+                <textarea class="form-control" name="appointment-form-message" placeholder="Your Message" required></textarea>
               </div>
 
 

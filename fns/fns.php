@@ -134,3 +134,17 @@ function send_mail($from_email, $to_email, $subject, $message, $reply_email, $fr
 
     return $response;
 }
+
+function generate_time_slots($start_time = '01:00', $interval = 60, $end_time = '23:00')
+{
+    $time_slots = [];
+    $current_time = strtotime($start_time);
+    $end_time = strtotime($end_time);
+
+    while ($current_time <= $end_time) {
+        $time_slots[] = date('h:i A', $current_time);  // h:i A gives time in AM/PM format
+        $current_time = strtotime("+$interval minutes", $current_time);
+    }
+
+    return $time_slots;
+}
