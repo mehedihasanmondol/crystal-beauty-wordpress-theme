@@ -12,6 +12,7 @@ function crystalbeauty_customize_social_links($wp_customize)
         'twitter'    => __('Twitter', 'crystal-beauty'),
         'linkedin'   => __('LinkedIn', 'crystal-beauty'),
         'facebook'   => __('Facebook', 'crystal-beauty'),
+        'instagram'   => __('Instagram', 'crystal-beauty'),
         'skype'      => __('Skype', 'crystal-beauty'),
         'pinterest'  => __('Pinterest', 'crystal-beauty'),
     );

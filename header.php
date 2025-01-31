@@ -61,6 +61,22 @@
                   <?php echo esc_html(get_theme_mod('contact_phone', '+1 234 567 8900')); ?>
                 </span>
               </li>
+              <li>
+                <?php
+                $social_icons = array(
+                  'facebook'   => 'fa-facebook',
+                  'instagram'   => 'fa-instagram',
+                );
+
+                foreach ($social_icons as $key => $icon) {
+                  $social_url = get_theme_mod("social_$key", '');
+                  if (!empty($social_url)) {
+                    echo '<li><a href="' . esc_url($social_url) . '" target="_blank"><i class="fa ' . esc_attr($icon) . '" aria-hidden="true"></i></a></li>';
+                  }
+                }
+                ?>
+
+              </li>
             </ul>
           </div>
         </div>

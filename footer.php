@@ -73,6 +73,7 @@
               'twitter'    => 'fa-twitter',
               'linkedin'   => 'fa-linkedin',
               'facebook'   => 'fa-facebook',
+              'instagram'   => 'fa-instagram',
               'skype'      => 'fa-skype',
               'pinterest'  => 'fa-pinterest-p',
             );
