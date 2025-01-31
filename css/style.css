@@ -2226,7 +2226,7 @@ textarea.form-control {
 }
 
 .main-nav .navbar-toggler {
-  align-self: flex-start;
+  /* align-self: flex-start; */
   padding: 0;
   background-color: #ec5598;
   border: none;
@@ -2234,7 +2234,7 @@ textarea.form-control {
   border-radius: 0px;
   position: absolute;
   right: 70px;
-  top: 17px;
+  /* top: 17px; */
   transition: all 0.5s ease-in-out;
   margin-top: 0px;
   z-index: 5550;
