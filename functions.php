@@ -24,4 +24,5 @@ require_once get_template_directory() . '/fns/home/offer.php';
 require_once get_template_directory() . '/fns/product/service.php';
 require_once get_template_directory() . '/fns/product/package-service.php';
 require_once get_template_directory() . '/fns/product/simple-product.php';
+require_once get_template_directory() . '/fns/woocommerce.php';
 require_once get_template_directory() . '/fns/shortcodes/manager.php';

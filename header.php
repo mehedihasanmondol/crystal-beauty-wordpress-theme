@@ -116,12 +116,14 @@
           </button>
 
           <?php if (class_exists('WooCommerce')) : ?>
-            <div class="cart_btn">
-              <a href="<?php echo wc_get_cart_url(); ?>">
-                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                <span class="badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-              </a>
-            </div>
+            <?php if (get_theme_mod('woocommerce_cart_icon_visibility', false)) : ?>
+              <div class="cart_btn">
+                <a href="<?php echo wc_get_cart_url(); ?>">
+                  <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                  <span class="badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                </a>
+              </div>
+            <?php endif; ?>
           <?php endif; ?>
           <!-- header search ends-->
         </div>
