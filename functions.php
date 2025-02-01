@@ -1,4 +1,5 @@
 <?php
+add_theme_support('post-thumbnails');
 // Include separate feature files
 require_once get_template_directory() . '/fns/fns.php';
 require_once get_template_directory() . '/fns/default-script.php';

@@ -12,6 +12,11 @@
             while ($slider_query->have_posts()) : $slider_query->the_post();
                 $slide_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 $slider_style = get_post_meta(get_the_ID(), '_slider_style', true) ?: 'slide-inner1'; // Default: style1
+                $button_text = get_post_meta(get_the_ID(), '_slider_button_text', true);
+                $button_link = get_post_meta(get_the_ID(), '_slider_button_link', true);
+                $button_text = $button_text ? $button_text : 'More details';
+                $button_link = $button_link ? $button_link : esc_url(get_permalink());
+
         ?>
 
                 <div class="slide slideResize slide2" style="background-image: url('<?php echo esc_url($slide_image); ?>');">
@@ -19,7 +24,10 @@
                         <div class="common-inner <?php echo $slider_style ?>">
                             <span class="h1 from-bottom"><?php the_title(); ?></span>
                             <span class="h4 from-bottom"><?php echo get_the_excerpt() ?></span><br>
-                            <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary first-btn waves-effect waves-light scale-up">More Details</a>
+
+                            <a href="<?php echo $button_link; ?>" class="btn btn-primary first-btn waves-effect waves-light scale-up">
+                                <?php echo $button_text ?>
+                            </a>
                         </div>
                     </div>
                 </div>

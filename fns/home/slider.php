@@ -36,7 +36,7 @@ function crystalbeauty_customize_slider_section($wp_customize)
 add_action('customize_register', 'crystalbeauty_customize_slider_section');
 
 
-add_theme_support('post-thumbnails');
+
 function crystalbeauty_register_slider()
 {
     register_post_type('slider', array(
@@ -86,21 +86,44 @@ add_action('add_meta_boxes', 'crystalbeauty_add_slider_style_meta_box');
 function crystalbeauty_slider_style_meta_box_callback($post)
 {
     $slider_style = get_post_meta($post->ID, '_slider_style', true);
+    $button_text = get_post_meta($post->ID, '_slider_button_text', true);
+    $button_link = get_post_meta($post->ID, '_slider_button_link', true);
 ?>
-    <label for="slider_style"><?php _e('Select Slider Style:', 'crystal-beauty'); ?></label>
-    <select name="slider_style" id="slider_style">
-        <option value="slide-inner1" <?php selected($slider_style, 'slide-inner1'); ?>>Style 1</option>
-        <option value="slide-inner2" <?php selected($slider_style, 'slide-inner2'); ?>>Style 2</option>
-        <option value="slide-inner3" <?php selected($slider_style, 'slide-inner3'); ?>>Style 3</option>
-        <option value="slide-inner4" <?php selected($slider_style, 'slide-inner4'); ?>>Style 4</option>
-    </select>
+    <p>
+        <label for="slider_style"><?php _e('Select Slider Style:', 'crystal-beauty'); ?></label>
+        <select name="slider_style" id="slider_style">
+            <option value="slide-inner1" <?php selected($slider_style, 'slide-inner1'); ?>>Style 1</option>
+            <option value="slide-inner2" <?php selected($slider_style, 'slide-inner2'); ?>>Style 2</option>
+            <option value="slide-inner3" <?php selected($slider_style, 'slide-inner3'); ?>>Style 3</option>
+            <option value="slide-inner4" <?php selected($slider_style, 'slide-inner4'); ?>>Style 4</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="slider_button_text"><?php _e('Button Text:', 'crystal-beauty'); ?></label>
+        <input type="text" name="slider_button_text" id="slider_button_text" value="<?php echo esc_attr($button_text); ?>" class="widefat">
+    </p>
+
+    <p>
+        <label for="slider_button_link"><?php _e('Button Link:', 'crystal-beauty'); ?></label>
+        <input type="url" name="slider_button_link" id="slider_button_link" value="<?php echo esc_url($button_link); ?>" class="widefat">
+    </p>
 <?php
 }
+
 
 function crystalbeauty_save_slider_style_meta($post_id)
 {
     if (isset($_POST['slider_style'])) {
         update_post_meta($post_id, '_slider_style', sanitize_text_field($_POST['slider_style']));
+    }
+
+    if (isset($_POST['slider_button_text'])) {
+        update_post_meta($post_id, '_slider_button_text', sanitize_text_field($_POST['slider_button_text']));
+    }
+
+    if (isset($_POST['slider_button_link'])) {
+        update_post_meta($post_id, '_slider_button_link', esc_url_raw($_POST['slider_button_link']));
     }
 }
 add_action('save_post', 'crystalbeauty_save_slider_style_meta');
