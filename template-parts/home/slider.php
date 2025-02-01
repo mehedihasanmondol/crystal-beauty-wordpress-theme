@@ -1,4 +1,4 @@
-<section class="main-slider d-none d-md-block" data-loop="true" data-autoplay="true" data-interval="3000">
+<section class="main-slider d-none d-md-block" data-loop="true" data-autoplay="true" data-interval="2000">
     <div class="inner">
         <?php
         $args = array(
@@ -47,7 +47,7 @@
         ?>
     </div>
 </section>
-<section class="main-slider mobile d-block d-md-none" data-loop="true" data-autoplay="true" data-interval="3000">
+<section class="main-slider mobile d-block d-md-none" data-loop="true" data-autoplay="true" data-interval="2000">
     <div class="inner">
         <?php
         $args = array(
