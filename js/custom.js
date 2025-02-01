@@ -75,6 +75,8 @@ jQuery(document).ready(function(){
         nav: true,
         dots: true,
         navText: [  ],
+        animateIn: 'slideInUp',  // Add fade-in animation when a slide enters
+        animateOut: 'slideInDown', // Add fade-out animation when a slide leaves
         autoplay: autoplay || false,
         autoplayTimeout: interval,
         autoplayHoverPause: true,
