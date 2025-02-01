@@ -21,7 +21,7 @@ $atts = get_query_var('package_service_atts', array());
       </div>
     <?php } ?>
 
-    <div class="row">
+    <div class="row" data-masonry='{"percentPosition": true }'>
       <?php
 
       $currency_symbol = get_woocommerce_currency_symbol();
@@ -33,7 +33,7 @@ $atts = get_query_var('package_service_atts', array());
         $price = $product->get_price();
 
       ?>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3 mb-3">
           <div class="priceTableWrapper">
 
             <?php

@@ -18,5 +18,6 @@ add_action('wp_enqueue_scripts', function () {
     wp_register_script('datepicker', get_template_directory_uri() . '/plugins/datepicker/bootstrap-datepicker.min.js');
     wp_register_script('lazyload', get_template_directory_uri() . '/plugins/lazyestload/lazyestload.js');
     wp_register_script('smooth-scroll', get_template_directory_uri() . '/plugins/smoothscroll/SmoothScroll.js');
+    wp_register_script('masonry', get_template_directory_uri() . '/plugins/masonry/masonry.pkgd.min.js');
     wp_register_script('custom', get_template_directory_uri() . '/js/custom.js', array(), wp_get_theme()->get('Version'));
 });

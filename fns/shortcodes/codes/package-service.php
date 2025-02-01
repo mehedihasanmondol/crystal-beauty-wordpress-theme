@@ -16,6 +16,10 @@ add_shortcode('package-service', function ($atts) {
     set_query_var('package_service_atts', $atts);
 
 
+    add_action('wp_footer', function () {
+        wp_enqueue_script('masonry');
+    });
+
     ob_start();
 
 
