@@ -25,7 +25,7 @@ $atts = get_query_var('package_service_atts', array());
       <?php
 
       $currency_symbol = get_woocommerce_currency_symbol();
-      $products = get_products('package_service');
+      $products = get_products('package_service', -1, true);
       foreach ($products as $product) {
         // Get product image URL
         $image_id  = $product->get_image_id(); // Get main image ID
