@@ -11,6 +11,7 @@ function crystalbeauty_customize_service_section($wp_customize)
     $wp_customize->add_section('service_section', array(
         'title'    => __('Service Section', 'crystal-beauty'),
         'priority' => 35,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for Service Heading

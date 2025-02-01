@@ -6,6 +6,7 @@ function crystalbeauty_customize_contact_section($wp_customize)
     $wp_customize->add_section('contact_section', array(
         'title'    => __('Contact us Section', 'crystal-beauty'),
         'priority' => 40,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for Get in Touch Heading

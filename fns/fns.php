@@ -181,3 +181,20 @@ function crystalbeauty_add_favicon_links()
     }
 }
 add_action('wp_head', 'crystalbeauty_add_favicon_links');
+
+function get_customizer_homepage_panel_key()
+{
+    return 'theme_homepage_panel';
+}
+
+
+function crystal_beauty_theme_hompage_customizer_panel($wp_customize)
+{
+    // Add a new panel for Theme Homepage
+    $wp_customize->add_panel(get_customizer_homepage_panel_key(), array(
+        'title' => __('Theme Homepage', 'crystal-beauty'),
+        'description' => __('Customize the homepage settings for the Crystal Beauty theme.', 'crystal-beauty'),
+        'priority' => 160, // Priority to control the order in the customizer
+    ));
+}
+add_action('customize_register', 'crystal_beauty_theme_hompage_customizer_panel');

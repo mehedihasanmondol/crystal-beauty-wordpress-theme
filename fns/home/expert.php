@@ -6,6 +6,7 @@ function crystalbeauty_expert_headings_register($wp_customize)
     $wp_customize->add_section('expert_titles', array(
         'title'    => __('Expert headings', 'crystal-beauty'),
         'priority' => 30,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for expert Section

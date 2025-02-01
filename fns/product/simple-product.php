@@ -5,6 +5,7 @@ function crystal_beauty_product_section_customize_register($wp_customize)
     $wp_customize->add_section('product_section_settings', array(
         'title'    => __('Product Section', 'crystal-beauty'),
         'priority' => 30,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // Add Setting for Toggle Switch (Show/Hide Section)

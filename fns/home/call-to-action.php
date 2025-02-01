@@ -7,6 +7,7 @@ function crystal_call_to_action_register($wp_customize)
     $wp_customize->add_section('cta_section', array(
         'title'    => __('Call to Action', 'crystal-beauty'),
         'priority' => 30,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for cta Section

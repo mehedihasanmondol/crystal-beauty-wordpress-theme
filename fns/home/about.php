@@ -3,9 +3,11 @@
 function theme_customize_register($wp_customize)
 {
 
+
     $wp_customize->add_section('about_section', array(
         'title' => __('About Section', 'crystal-beauty'),
         'priority' => 30,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for About Section

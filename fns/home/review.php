@@ -5,6 +5,7 @@ function theme_testimonial_heading_register($wp_customize)
     $wp_customize->add_section('testimonial_section', array(
         'title'    => __('Testimonials headings', 'crystal-beauty'),
         'priority' => 30,
+        'panel'    => get_customizer_homepage_panel_key(), // Adds to the Homepage Settings panel
     ));
 
     // On/Off Switch for testimonial Section
