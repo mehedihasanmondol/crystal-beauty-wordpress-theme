@@ -8,7 +8,7 @@ $atts = get_query_var('service_atts', array());
 
 ?>
 
-<section class="clearfix varietySection">
+<section class="clearfix varietySection" style="overflow:hidden">
   <div class="container">
     <?php if ($atts['heading-visibility']) { ?>
       <div class="secotionTitle">

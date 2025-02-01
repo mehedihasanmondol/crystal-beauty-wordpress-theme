@@ -157,3 +157,20 @@ function get_gallery_categories()
         'hide_empty' => true, // Show empty categories too
     ));
 }
+
+
+function crystalbeauty_add_favicon_links()
+{
+    if (has_site_icon()) {
+        $favicon_32  = get_site_icon_url(32);
+        $favicon_192 = get_site_icon_url(192);
+        $apple_icon  = get_site_icon_url(180);
+        $ms_tile     = get_site_icon_url(270);
+
+        echo '<link rel="icon" href="' . esc_url($favicon_32) . '" sizes="32x32">' . "\n";
+        echo '<link rel="icon" href="' . esc_url($favicon_192) . '" sizes="192x192">' . "\n";
+        echo '<link rel="apple-touch-icon" href="' . esc_url($apple_icon) . '">' . "\n";
+        echo '<meta name="msapplication-TileImage" content="' . esc_url($ms_tile) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'crystalbeauty_add_favicon_links');

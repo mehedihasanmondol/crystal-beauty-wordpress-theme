@@ -5,6 +5,8 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php bloginfo('name'); ?> | <?php wp_title(); ?></title>
+  <!-- FAVICON -->
+  <?php crystalbeauty_add_favicon_links(); ?>
   <?php wp_head(); ?>
   <style>
     /* Paste this css to your style sheet file or under head tag */
