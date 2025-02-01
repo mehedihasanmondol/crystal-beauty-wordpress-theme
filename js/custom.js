@@ -75,7 +75,7 @@ jQuery(document).ready(function(){
         nav: true,
         dots: true,
         navText: [  ],
-        autoplay: false,
+        autoplay: autoplay || false,
         autoplayTimeout: interval,
         autoplayHoverPause: true,
         smartSpeed:700

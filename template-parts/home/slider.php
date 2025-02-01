@@ -1,4 +1,4 @@
-<section class="main-slider" data-loop="true" data-autoplay="true" data-interval="7000">
+<section class="main-slider" data-loop="true" data-autoplay="true" data-interval="3000">
     <div class="inner">
         <?php
         $args = array(
