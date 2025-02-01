@@ -141,3 +141,31 @@ function crystalbeauty_save_slider_style_meta($post_id)
     }
 }
 add_action('save_post', 'crystalbeauty_save_slider_style_meta');
+
+
+// Add 'Display Mode' custom column to Slider post type at a specific position
+function add_slider_columns($columns)
+{
+    // Insert the 'Display Mode' column after the title column
+    $new_columns = array();
+    foreach ($columns as $key => $value) {
+        $new_columns[$key] = $value;
+        // Specify where to insert the new column (e.g., after 'title' column)
+        if ($key == 'title') {
+            $new_columns['display_mode'] = __('Display Mode', 'crystal-beauty');
+        }
+    }
+    return $new_columns;
+}
+add_filter('manage_slider_posts_columns', 'add_slider_columns');
+
+// Display content in the 'Display Mode' custom column for Slider post type
+function custom_slider_column_content($column, $post_id)
+{
+    if ($column == 'display_mode') {
+        // Retrieve custom data for 'Display Mode' (for example, a custom field)
+        $display_mode_value = get_post_meta($post_id, '_slider_display_mode', true);
+        echo $display_mode_value ? $display_mode_value : __('No data', 'crystal-beauty');
+    }
+}
+add_action('manage_slider_posts_custom_column', 'custom_slider_column_content', 10, 2);
