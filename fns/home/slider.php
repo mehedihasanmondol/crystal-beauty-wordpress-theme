@@ -88,7 +88,16 @@ function crystalbeauty_slider_style_meta_box_callback($post)
     $slider_style = get_post_meta($post->ID, '_slider_style', true);
     $button_text = get_post_meta($post->ID, '_slider_button_text', true);
     $button_link = get_post_meta($post->ID, '_slider_button_link', true);
+    $display_mode   = get_post_meta($post->ID, '_slider_display_mode', true);
+
 ?>
+    <p>
+        <label for="slider_display_mode"><?php _e('Slider Display Mode:', 'crystal-beauty'); ?></label>
+        <select name="slider_display_mode" id="slider_display_mode">
+            <option value="Computer" <?php selected($display_mode, 'Computer'); ?>>Computer</option>
+            <option value="Mobile" <?php selected($display_mode, 'Mobile'); ?>>Mobile</option>
+        </select>
+    </p>
     <p>
         <label for="slider_style"><?php _e('Select Slider Style:', 'crystal-beauty'); ?></label>
         <select name="slider_style" id="slider_style">
@@ -98,6 +107,8 @@ function crystalbeauty_slider_style_meta_box_callback($post)
             <option value="slide-inner4" <?php selected($slider_style, 'slide-inner4'); ?>>Style 4</option>
         </select>
     </p>
+
+
 
     <p>
         <label for="slider_button_text"><?php _e('Button Text:', 'crystal-beauty'); ?></label>
@@ -124,6 +135,9 @@ function crystalbeauty_save_slider_style_meta($post_id)
 
     if (isset($_POST['slider_button_link'])) {
         update_post_meta($post_id, '_slider_button_link', esc_url_raw($_POST['slider_button_link']));
+    }
+    if (isset($_POST['slider_display_mode'])) {
+        update_post_meta($post_id, '_slider_display_mode', sanitize_text_field($_POST['slider_display_mode']));
     }
 }
 add_action('save_post', 'crystalbeauty_save_slider_style_meta');
