@@ -4,7 +4,7 @@ $animation_out = get_theme_mod('slider_animation_out', 'fadeOut');
 $slider_interval = get_theme_mod('slider_interval', 3000);
 ?>
 <section
-    class="main-slider d-none d-md-block"
+    class="main-slider computer d-none d-md-block"
     data-loop="true"
     data-animateIn="<?php echo $animation_in ?>"
     data-animateOut="<?php echo $animation_out ?>"
@@ -58,7 +58,12 @@ $slider_interval = get_theme_mod('slider_interval', 3000);
         ?>
     </div>
 </section>
-<section class="main-slider mobile d-block d-md-none" data-loop="true" data-autoplay="true" data-interval="2000">
+<section class="main-slider mobile d-block d-md-none"
+    data-loop="true"
+    data-animateIn="<?php echo $animation_in ?>"
+    data-animateOut="<?php echo $animation_out ?>"
+    data-autoplay="true"
+    data-interval="<?php echo $slider_interval ?>">
     <div class="inner">
         <?php
         $args = array(

@@ -255,7 +255,6 @@ jQuery(document).ready(function(){
   if ($.fn.datepicker) {
     $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   }
-  
   var datepicker = $('.datepicker');
 
   if (datepicker.length !== 0) {
