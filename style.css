@@ -26,3 +26,7 @@ Text Domain: crystal-beauty
     padding: 0.685rem .75rem !important;
     border-radius: 0px !important;
 }
+
+.tabs-left .nav li a span.amount span {
+    float: none !important;
+}
