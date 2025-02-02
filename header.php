@@ -109,12 +109,6 @@
             ));
             ?>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
           <?php if (class_exists('WooCommerce')) : ?>
             <?php if (get_theme_mod('woocommerce_cart_icon_visibility', false)) : ?>
               <div class="cart_btn">
@@ -125,6 +119,14 @@
               </div>
             <?php endif; ?>
           <?php endif; ?>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+
           <!-- header search ends-->
         </div>
       </nav>

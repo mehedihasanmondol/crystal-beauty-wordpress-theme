@@ -37,3 +37,13 @@ section.related.products {
     /* float: left; */
     clear: both;
 }
+.main-nav .navbar-toggler {
+    right: 20px;
+}
+.cart_btn {
+    right: 70px;
+}
+.woocommerce div.product form.cart {
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
