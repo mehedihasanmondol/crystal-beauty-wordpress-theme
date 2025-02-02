@@ -31,6 +31,17 @@ jQuery(document).ready(function(){
     select_drop.selectbox();
   }
 
+  var selectize = $(".selectize");
+
+  if (selectize.length !== 0){
+    selectize.selectize(
+      {
+        plugins: ["clear_button","remove_button"],
+      },
+      
+    );
+  }
+
   //============================== header =========================
 
   $('.navbar a.dropdown-toggle').on('click', function(e) {

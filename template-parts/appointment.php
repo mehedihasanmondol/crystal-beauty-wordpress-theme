@@ -8,37 +8,22 @@
 
           <form action="#" id="appoinmentForm" method="post">
 
+            <div class="contactTitle">
+              <h3>Services:</h3>
+            </div>
 
-            <ul class="list-unstyled custom-list">
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Braids & Twist" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">Braids & Twist</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Hair color" id="defaultCheck2">
-                <label class="form-check-label" for="defaultCheck2">Hair color</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Hair extension" id="defaultCheck3">
-                <label class="form-check-label" for="defaultCheck3">Hair extension</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Corrective color" id="defaultCheck4">
-                <label class="form-check-label" for="defaultCheck4">Corrective color</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Hair cut" id="defaultCheck5">
-                <label class="form-check-label" for="defaultCheck5">Hair cut</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Partial foil" id="defaultCheck6">
-                <label class="form-check-label" for="defaultCheck6">Partial foil</label>
-              </li>
-              <li class="checkbox form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" name="appointment-form-services[]" value="Extension per track" id="defaultCheck7">
-                <label class="form-check-label" for="defaultCheck7">Extension per track</label>
-              </li>
-            </ul>
+            <div class="custom-timeSelect clearfix">
+              <div class="countrySelect timeSelect form-group">
+                <select name="appointment-form-services[]" id="time" class="selectize form-control" multiple placeholder="Choose services">
+                  <?php
+                  foreach (get_products('service') as $service) {
+                  ?>
+                    <option value="<?php echo $service->get_name() ?>"><?php echo $service->get_name() ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+
 
             <div class="contactTitle">
               <h3>Appointment Date:</h3>
@@ -58,8 +43,8 @@
             </div>
 
             <div class="custom-timeSelect clearfix">
-              <div class="countrySelect timeSelect">
-                <select name="appointment-form-time" id="time" class="select-drop">
+              <div class="countrySelect timeSelect form-group">
+                <select name="appointment-form-time" id="time" class="selectize form-control" placeholder="Choose time">
                   <?php
                   foreach (generate_time_slots() as $time) {
                   ?>
@@ -68,6 +53,7 @@
                 </select>
               </div>
             </div>
+
 
 
 

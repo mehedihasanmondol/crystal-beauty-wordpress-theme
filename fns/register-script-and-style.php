@@ -6,10 +6,11 @@ add_action('wp_enqueue_scripts', function () {
     wp_register_style('fancybox', get_template_directory_uri() . '/plugins/fancybox/jquery.fancybox.min.css');
     wp_register_style('isotope', get_template_directory_uri() . '/plugins/isotope/isotope.min.css');
     wp_register_style('datepicker', get_template_directory_uri() . '/plugins/datepicker/datepicker.min.css');
+    wp_register_style('selectize', get_template_directory_uri() . '/plugins/selectize/dist/css/selectize.bootstrap4.css');
 
 
 
-
+    wp_register_script('selectize', get_template_directory_uri() . '/plugins/selectize/dist/js/selectize.min.js');
     wp_register_script('selectbox', get_template_directory_uri() . '/plugins/selectbox/jquery.selectbox-0.1.3.min.js');
     wp_register_script('owl_carousel', get_template_directory_uri() . '/plugins/owl-carousel/owl.carousel.min.js');
     wp_register_script('isotope', get_template_directory_uri() . '/plugins/isotope/isotope.min.js');

@@ -4,7 +4,7 @@ Theme URI: http://eazytask.au
 Author: Ahsan Chowdhury
 Author URI: http://easytask.au
 Description: A custom WordPress theme based on Crystal Beauty HTML template.
-Version: 1.4
+Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: responsive, beauty, spa, ecommerce
@@ -20,4 +20,9 @@ Text Domain: crystal-beauty
 
 .priceTableWrapper .priceInfo ul li strong {
     font-weight: normal;
+}
+
+.selectize-input {
+    padding: 0.685rem .75rem !important;
+    border-radius: 0px !important;
 }
