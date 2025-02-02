@@ -252,12 +252,17 @@ jQuery(document).ready(function(){
   });
 
   //============================== DATE-PICKER =========================
+  if ($.fn.datepicker) {
+    $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+  }
+  
   var datepicker = $('.datepicker');
 
   if (datepicker.length !== 0) {
     datepicker.datepicker({
       startDate: 'dateToday',
-      autoclose: true
+      autoclose: true,
+      format: 'dd/mm/yyyy',
     });
   }
 

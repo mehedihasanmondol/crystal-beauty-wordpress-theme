@@ -14,7 +14,7 @@
 
             <div class="custom-timeSelect clearfix">
               <div class="countrySelect timeSelect form-group">
-                <select name="appointment-form-services[]" id="time" class="selectize form-control" multiple placeholder="Choose services">
+                <select name="appointment-form-services[]" class="selectize form-control" multiple placeholder="Choose services">
                   <?php
                   foreach (get_products('service') as $service) {
                   ?>
@@ -45,6 +45,7 @@
             <div class="custom-timeSelect clearfix">
               <div class="countrySelect timeSelect form-group">
                 <select name="appointment-form-time" id="time" class="selectize form-control" placeholder="Choose time">
+                  <option value="">Choose time</option>
                   <?php
                   foreach (generate_time_slots() as $time) {
                   ?>

@@ -3,11 +3,11 @@
 add_shortcode('service', function ($atts) {
 
     add_action('wp_footer', function () {
-        wp_enqueue_style('select_option_1');
         wp_enqueue_style('datepicker');
+        wp_enqueue_style('selectize');
 
 
-        wp_enqueue_script('selectbox');
+        wp_enqueue_script('selectize');
         wp_enqueue_script('datepicker');
         wp_enqueue_script('lazyload');
         wp_enqueue_script('custom');

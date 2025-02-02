@@ -114,3 +114,34 @@ function custom_service_add_to_cart()
     }
 }
 // add_action('woocommerce_after_shop_loop_item', 'custom_service_add_to_cart', 10);
+
+function add_appointment_button_for_service()
+{
+    global $product;
+
+
+    // Check if the product type is 'service'
+    if ($product->get_type() === 'service') {
+        add_action('wp_footer', function () {
+            wp_enqueue_style('selectize');
+            wp_enqueue_style('datepicker');
+
+
+            wp_enqueue_script('selectize');
+            wp_enqueue_script('custom');
+            wp_enqueue_script('datepicker');
+            // Localize script to provide AJAX URL
+            wp_localize_script('custom', 'ajaxurl', array(
+                'contact_mail' => admin_url('admin-ajax.php'),
+                'appointment_mail' => admin_url('admin-ajax.php')
+            ));
+        });
+
+
+        echo '<div class="" style="margin-bottom:2em;margin-top:2em">';
+        echo '<a data-toggle="modal" href="javascript:void(0)" data-target="#' . get_appointment_modal_id($product->get_id()) . '" class="button book-appointment">' . __('Book an Appointment', 'crystal-beauty') . '</a>';
+        echo '</div>';
+        generate_appointment_modal($product->get_id(), $product->get_name());
+    }
+}
+add_action('woocommerce_single_product_summary', 'add_appointment_button_for_service', 25);
