@@ -32,6 +32,48 @@ function crystalbeauty_customize_slider_section($wp_customize)
         'section'  => 'slider_section',
         'type'     => 'text',
     ));
+
+    // Animation In Style (Text Field)
+    $wp_customize->add_setting('slider_animation_in', array(
+        'default'           => 'fadeIn',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('slider_animation_in', array(
+        'label'    => __('Animation In Style (CSS Class)', 'crystal-beauty'),
+        'section'  => 'slider_section',
+        'description' => __('animate.css https://animate.style/ .', 'crystal-beauty'),
+        'type'     => 'text',
+    ));
+
+    // Animation Out Style (Text Field)
+    $wp_customize->add_setting('slider_animation_out', array(
+        'default'           => 'fadeOut',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('slider_animation_out', array(
+        'label'    => __('Animation Out Style (CSS Class )', 'crystal-beauty'),
+        'description' => __('animate.css https://animate.style/ .', 'crystal-beauty'),
+        'section'  => 'slider_section',
+        'type'     => 'text',
+    ));
+
+    // Slider Interval
+    $wp_customize->add_setting('slider_interval', array(
+        'default'           => 5000,
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('slider_interval', array(
+        'label'    => __('Slider Interval (ms)', 'crystal-beauty'),
+        'section'  => 'slider_section',
+        'type'     => 'number',
+        'input_attrs' => array(
+            'min'  => 1000,
+            'step' => 500,
+        ),
+    ));
 }
 
 add_action('customize_register', 'crystalbeauty_customize_slider_section');

@@ -77,7 +77,9 @@ jQuery(document).ready(function(){
 
     var loop = $(this).parent().data('loop'),
         autoplay = $(this).parent().data('autoplay'),
-        interval = $(this).parent().data('interval') || 3000;
+        interval = $(this).parent().data('interval') || 3000,
+        animateIn = $(this).parent().data('animatein') || 'fadeIn',
+        animateOut = $(this).parent().data('animateout') || 'fadeOut';
 
       $(this).owlCarousel({
         items: 1,
@@ -86,8 +88,8 @@ jQuery(document).ready(function(){
         nav: true,
         dots: true,
         navText: [  ],
-        animateIn: 'slideInUp',  // Add fade-in animation when a slide enters
-        animateOut: 'slideInDown', // Add fade-out animation when a slide leaves
+        animateIn,  // Add fade-in animation when a slide enters
+        animateOut, // Add fade-out animation when a slide leaves
         autoplay: autoplay || false,
         autoplayTimeout: interval,
         autoplayHoverPause: true,

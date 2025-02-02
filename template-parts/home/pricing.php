@@ -57,7 +57,7 @@ $atts = get_query_var('package_service_atts', array());
                       <?php
 
                       if (!empty($price)) {
-                        echo  $price . $currency_symbol;
+                        echo wc_price($price);
                       }
                       ?>
                     </h4>
