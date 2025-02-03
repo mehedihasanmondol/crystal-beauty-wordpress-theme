@@ -16,9 +16,22 @@ add_shortcode('package-service', function ($atts) {
     set_query_var('package_service_atts', $atts);
 
 
+
     add_action('wp_footer', function () {
+        wp_enqueue_style('selectize');
+        wp_enqueue_style('datepicker');
+
         wp_enqueue_script('masonry');
+        wp_enqueue_script('selectize');
+        wp_enqueue_script('custom');
+        wp_enqueue_script('datepicker');
+        // Localize script to provide AJAX URL
+        wp_localize_script('custom', 'ajaxurl', array(
+            'contact_mail' => admin_url('admin-ajax.php'),
+            'appointment_mail' => admin_url('admin-ajax.php')
+        ));
     });
+
 
     ob_start();
 

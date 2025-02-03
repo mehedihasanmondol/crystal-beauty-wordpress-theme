@@ -76,9 +76,12 @@ $atts = get_query_var('package_service_atts', array());
                 <?php echo $product->get_short_description() ?>
 
               </div>
-              <a href="<?php echo esc_url($product->get_permalink()); ?>" class="btn btn-primary first-btn">Book Now</a>
+
+              <a href="javascript:void(0)" class="btn btn-primary first-btn" data-toggle="modal" data-target="#<?php echo get_appointment_modal_id($product->get_id()) ?>">Book Now</a>
             </div>
           </div>
+          <?php generate_appointment_modal($product->get_id(), $product->get_name()) ?>
+
         </div>
       <?php } ?>
 

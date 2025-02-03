@@ -73,7 +73,7 @@ function generate_appointment_modal($id, $service_name)
                                 required></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" id="appointment-submit-btn" class="btn btn-primary first-btn">Get Appintment</button>
+                            <button type="submit" id="appointment-submit-btn" class="btn btn-primary first-btn">Get Appointment</button>
                         </div>
                     </form>
                 </div>
