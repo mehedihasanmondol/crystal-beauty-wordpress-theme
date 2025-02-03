@@ -15,16 +15,33 @@ $slider_interval = get_theme_mod('slider_interval', 3000);
         $args = array(
             'post_type'      => 'slider',
             'posts_per_page' => -1,
-            'order'          => 'ASC',
+            'meta_key'       => '_slider_position',  // Order by this field
+            'orderby'        => array(
+                'meta_value_num' => 'ASC', // Order by slider position
+                'date'           => 'DESC' // If position is empty, order by newest first
+            ),
             'meta_query'     => array(
                 array(
                     'key'     => '_slider_display_mode',
                     'value'   => 'computer',
                     'compare' => '='
+                ),
+                array(
+                    'relation' => 'OR',
+                    array(
+                        'key'     => '_slider_position',
+                        'compare' => 'EXISTS'
+                    ),
+                    array(
+                        'key'     => '_slider_position',
+                        'compare' => 'NOT EXISTS'
+                    )
                 )
             )
         );
+
         $slider_query = new WP_Query($args);
+
 
         if ($slider_query->have_posts()) :
             while ($slider_query->have_posts()) : $slider_query->the_post();
@@ -69,12 +86,27 @@ $slider_interval = get_theme_mod('slider_interval', 3000);
         $args = array(
             'post_type'      => 'slider',
             'posts_per_page' => -1,
-            'order'          => 'ASC',
+            'meta_key'       => '_slider_position',  // Order by this field
+            'orderby'        => array(
+                'meta_value_num' => 'ASC', // Order by slider position
+                'date'           => 'DESC' // If position is empty, order by newest first
+            ),
             'meta_query'     => array(
                 array(
                     'key'     => '_slider_display_mode',
                     'value'   => 'mobile',
                     'compare' => '='
+                ),
+                array(
+                    'relation' => 'OR',
+                    array(
+                        'key'     => '_slider_position',
+                        'compare' => 'EXISTS'
+                    ),
+                    array(
+                        'key'     => '_slider_position',
+                        'compare' => 'NOT EXISTS'
+                    )
                 )
             )
         );

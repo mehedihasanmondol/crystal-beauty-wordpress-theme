@@ -164,6 +164,26 @@ function crystalbeauty_slider_style_meta_box_callback($post)
     </p>
 <?php
 }
+function crystalbeauty_add_slider_position_meta_box()
+{
+    add_meta_box(
+        'slider_position_meta',
+        __('Slider Position', 'crystal-beauty'),
+        'crystalbeauty_slider_position_meta_box_callback',
+        'slider',
+        'side'
+    );
+}
+add_action('add_meta_boxes', 'crystalbeauty_add_slider_position_meta_box');
+
+function crystalbeauty_slider_position_meta_box_callback($post)
+{
+    $slider_position = get_post_meta($post->ID, '_slider_position', true);
+?>
+    <label for="slider_position"><?php _e('Position:', 'crystal-beauty'); ?></label>
+    <input type="number" name="slider_position" id="slider_position" value="<?php echo esc_attr($slider_position); ?>" min="1">
+<?php
+}
 
 
 function crystalbeauty_save_slider_style_meta($post_id)
@@ -182,6 +202,12 @@ function crystalbeauty_save_slider_style_meta($post_id)
     if (isset($_POST['slider_display_mode'])) {
         update_post_meta($post_id, '_slider_display_mode', sanitize_text_field($_POST['slider_display_mode']));
     }
+
+    if (isset($_POST['slider_position']) && $_POST['slider_position'] !== '') {
+        update_post_meta($post_id, '_slider_position', intval($_POST['slider_position']));
+    } else {
+        update_post_meta($post_id, '_slider_position', 9999); // Default high value
+    }
 }
 add_action('save_post', 'crystalbeauty_save_slider_style_meta');
 
@@ -193,9 +219,11 @@ function add_slider_columns($columns)
     $new_columns = array();
     foreach ($columns as $key => $value) {
         $new_columns[$key] = $value;
+
         // Specify where to insert the new column (e.g., after 'title' column)
         if ($key == 'title') {
             $new_columns['display_mode'] = __('Display Mode', 'crystal-beauty');
+            $new_columns['slider_position'] = __('Position', 'crystal-beauty');
         }
     }
     return $new_columns;
@@ -212,3 +240,18 @@ function custom_slider_column_content($column, $post_id)
     }
 }
 add_action('manage_slider_posts_custom_column', 'custom_slider_column_content', 10, 2);
+
+function crystalbeauty_add_slider_position_column($columns)
+{
+    $columns['slider_position'] = __('Position', 'crystal-beauty'); // Add new column
+    return $columns;
+}
+add_filter('manage_slider_posts_columns', 'crystalbeauty_add_slider_position_column');
+function crystalbeauty_show_slider_position_column($column, $post_id)
+{
+    if ($column == 'slider_position') {
+        $position = get_post_meta($post_id, '_slider_position', true);
+        echo $position ? esc_html($position) : __('Not Set', 'crystal-beauty');
+    }
+}
+add_action('manage_slider_posts_custom_column', 'crystalbeauty_show_slider_position_column', 10, 2);
