@@ -23,26 +23,27 @@
             </p>
           </div>
         </div>
-        <div class="col-sm-3 col-xs-12 paddingLeft">
-          <div class="footerInfoTitle">
-            <h4><?php echo esc_html(get_theme_mod('useful_links_heading', 'Useful Links')); ?></h4>
+        <?php if (has_nav_menu('footer_menu')) : ?>
+          <div class="col-sm-3 col-xs-12 paddingLeft">
+            <div class="footerInfoTitle">
+              <h4><?php echo esc_html(get_theme_mod('useful_links_heading', 'Useful Links')); ?></h4>
+            </div>
+            <div class="useLink">
+              <ul class="list-unstyled">
+                <?php
+                wp_nav_menu(array(
+                  'theme_location' => 'footer_menu',
+                  'container'      => false,
+                  'items_wrap'     => '%3$s', // Removes the default <ul> wrapper
+                  'fallback_cb'    => false, // Hides menu if empty
+                  'before'         => ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp; &nbsp;'
+                ));
+                ?>
+              </ul>
+            </div>
           </div>
-          <div class="useLink">
-            <ul class="list-unstyled">
-              <?php
-              wp_nav_menu(array(
-                'theme_location' => 'footer_menu',
-                'container'      => false,
-                'items_wrap'     => '%3$s', // Removes the default <ul> wrapper
-                'fallback_cb'    => false, // Hides menu if empty
-                'before'         => ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp; &nbsp;'
-              ));
-              ?>
-            </ul>
+        <?php endif; ?>
 
-
-          </div>
-        </div>
 
 
         <?php
