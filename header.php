@@ -37,7 +37,7 @@
 </head>
 
 <body id="body" class="body-wrapper static">
-  <!-- <div class="se-pre-con"></div> -->
+  <div class="se-pre-con"></div>
   <div class="main-wrapper">
     <!-- HEADER -->
     <header id="pageTop" class="header">
